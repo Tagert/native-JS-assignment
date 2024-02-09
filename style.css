@@ -1,0 +1,282 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  padding: 1rem;
+  color: #211c6a;
+}
+
+.container {
+  margin: 1rem;
+}
+
+.top-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 12rem;
+  border-radius: 0.6rem;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0rem 3rem;
+  background: linear-gradient(90deg, rgb(239, 243, 150) 0%, rgb(89, 180, 195) 65%);
+}
+.top-section .web-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.top-section .web-title .logo-box {
+  max-width: 8rem;
+}
+.top-section .web-title .logo-box img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.top-section .web-title .title h1 {
+  font-family: "Kalam", cursive;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #211c6a;
+}
+.top-section .navbar {
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+}
+.top-section .navbar a {
+  font-size: 1.15rem;
+  text-decoration: none;
+  color: #211c6a;
+}
+.top-section .navbar .account-manager {
+  display: flex;
+  gap: 2rem;
+}
+.top-section .navbar .nav-list {
+  display: flex;
+  gap: 2rem;
+}
+
+.sort-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3.5rem;
+  border: 0.1rem solid #e5e1da;
+  border-radius: 0.6rem;
+  max-width: 1440px;
+  margin-top: 0.9rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0rem 3rem;
+}
+.sort-section .filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+.sort-section .filter h2 {
+  font-size: 1.2rem;
+}
+.sort-section .filter p #foundItems {
+  font-weight: 700;
+}
+.sort-section .sort {
+  display: flex;
+  gap: 3rem;
+}
+.sort-section .sort select {
+  border-radius: 1rem;
+  padding: 0.2rem 0.8rem;
+  outline: none;
+}
+
+.main-section {
+  display: flex;
+  gap: 1%;
+  min-height: 100vh;
+  max-width: 1440px;
+  border-radius: 0.6rem;
+  margin-top: 0.9rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.main-section .choose-side {
+  min-height: 100%;
+  min-width: 16%;
+  border: 0.1rem solid #e5e1da;
+  border-radius: 0.6rem;
+  padding: 3rem;
+}
+.main-section .choose-side .type-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.main-section .choose-side .type-box .title-description h2 {
+  font-size: 1.2rem;
+}
+.main-section .choose-side .type-box .title-type {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.main-section .choose-side .type-box .title-type .title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.main-section .choose-side .type-box .title-type .title-wrapper img {
+  width: 0.9rem;
+}
+.main-section .choose-side .type-box .title-type .title-wrapper h3 {
+  font-size: 1rem;
+}
+.main-section .choose-side .type-box .title-type h3 {
+  font-size: 1.1rem;
+}
+.main-section .choose-side .type-box .title-type .select-type {
+  display: flex;
+  gap: 0.5rem;
+  padding-left: 0.25rem;
+}
+.main-section .choose-side .type-box .title-type .select-type label {
+  font-size: 0.85rem;
+}
+.main-section .cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  min-height: 100%;
+  min-width: 83%;
+  border-radius: 1rem;
+}
+.main-section .cards-container .item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 14rem;
+  width: 100%;
+  border: 0.1rem solid #e5e1da;
+  border-radius: 0.4rem;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  transition: all 150ms linear;
+}
+.main-section .cards-container .item-card:hover {
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+}
+.main-section .cards-container .item-card .image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12rem;
+  width: 12rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+.main-section .cards-container .item-card .image-box img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main-section .cards-container .item-card .main-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 30rem;
+  padding: 1rem;
+}
+.main-section .cards-container .item-card .main-box .item-title h4 {
+  font-size: 1rem;
+}
+.main-section .cards-container .item-card .main-box .specification-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+.main-section .cards-container .item-card .main-box .specification-box p {
+  position: relative;
+  font-size: 0.9rem;
+}
+.main-section .cards-container .item-card .main-box .specification-box p:first-child::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  display: block;
+  width: 10.8rem;
+  border-bottom: 0.1rem solid #e5e1da;
+}
+.main-section .cards-container .item-card .price-box {
+  position: relative;
+  width: 15rem;
+  height: 100%;
+  padding: 1rem;
+}
+.main-section .cards-container .item-card .price-box::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: -2rem;
+  display: block;
+  height: 10rem;
+  border-left: 0.1rem solid #e5e1da;
+}
+.main-section .cards-container .item-card .price-box .description-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 0.1rem;
+  text-align: left;
+}
+.main-section .cards-container .item-card .price-box .description-box p {
+  font-size: 1.7rem;
+}
+.main-section .cards-container .item-card .price-box .description-box #view-btn {
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #161a30;
+  padding: 0.4rem;
+  color: #161a30;
+  background: linear-gradient(270deg, rgb(227, 225, 217) 0%, rgb(242, 239, 229) 100%);
+}
+.main-section .cards-container .item-card .price-box .description-box #view-btn:hover {
+  cursor: pointer;
+  background: linear-gradient(90deg, rgb(49, 48, 77) 0%, rgb(22, 26, 48) 120%);
+  color: #f0ece5;
+}
+.main-section .cards-container .item-card a {
+  display: none;
+  font-size: 0.65rem;
+  letter-spacing: 0.15rem;
+  text-decoration: none;
+  color: #161a30;
+}
+.main-section .cards-container .item-card a:hover {
+  font-weight: 700;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Native JS final assignment</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="top-section">
+      <div class="web-title">
+        <div class="logo-box">
+          <img src="./assets/share-with-me-logo.png" alt="logo" />
+        </div>
+
+        <div class="title">
+          <h1>Share.tech</h1>
+        </div>
+      </div>
+
+      <div class="navbar">
+        <div class="account-manager">
+          <a id="loginWrapper" href="#">Login</a>
+          <a id="registerWrapper" href="#">Register</a>
+        </div>
+
+        <div class="nav-list">
+          <a href="./index.html">Home</a>
+          <a href="3">Share with me</a>
+          <div class="my-basket">
+            <a href="#">My Favorite</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="sort-section">
+      <div class="filter">
+        <h2>Items filter:</h2>
+        <p><span id="foundItems">6</span> items found</p>
+      </div>
+
+      <div class="sort">
+        <div class="by-order">
+          <select name="sort" id="sort">
+            <option id="sortPriceAs" value="sortPriceAs">
+              Sort by price ascending
+            </option>
+
+            <option id="sortPriceDes" value="sortPriceDes">
+              Sort by price descending
+            </option>
+
+            <option id="sortName" value="sortName">Sort by name</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <main class="main-section">
+      <div class="choose-side">
+        <div class="type-box">
+          <div class="title-description">
+            <h2>Choose:</h2>
+          </div>
+
+          <div class="title-type">
+            <div class="title-wrapper">
+              <img src="./assets/plus_icon.svg" alt="" />
+              <h3>Type</h3>
+            </div>
+
+            <div class="select-type laptops-type">
+              <input type="checkbox" id="laptops" name="laptops" />
+              <label for="laptops">Laptops</label>
+            </div>
+
+            <div class="select-type monitors-type">
+              <input type="checkbox" id="monitors" name="monitors" />
+              <label for="monitors">Monitors</label>
+            </div>
+
+            <div class="select-type tablets-type">
+              <input type="checkbox" id="tablets" name="tablets" />
+              <label for="tablets">Tablets</label>
+            </div>
+
+            <div class="select-type phones-type">
+              <input type="checkbox" id="phones" name="phones" />
+              <label for="phones">Phones</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-container">
+        <!-- <div class="item-card">
+          <div class="image-box">
+            <img
+              src="https://www.laptopsdirect.co.uk/Images/A1MKGQ3BA_1_13773330_Classic.jpg?v=5"
+              alt=""
+            />
+          </div>
+
+          <div class="main-box">
+            <div class="item-title">
+              <h4>Apple MacBook Pro 14" M1 Pro 16GB 1TB SSD 2021</h4>
+            </div>
+
+            <div class="specification-box">
+              <p>Released on 2021-11</p>
+              <p>14" 3456 x 2234 120Hz Screen</p>
+              <p>M1 Pro M1 Processor</p>
+              <p>M1 Pro 16-Core Graphics card</p>
+              <p>1TB SSD 16GB RAM</p>
+              <p>Location: Vilnius</p>
+            </div>
+          </div>
+
+          <div class="price-box">
+            <div class="description-box">
+              <p>£1599.97</p>
+              <button id="view-btn">View product</button>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
