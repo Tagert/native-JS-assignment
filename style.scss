@@ -46,6 +46,7 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 12rem;
+  border: 0.1rem solid $grey-text-color;
   border-radius: 0.6rem;
   max-width: 1440px;
   margin-left: auto;
@@ -83,12 +84,17 @@ body {
   .navbar {
     display: flex;
     align-items: center;
-    gap: 10rem;
+    gap: 8rem;
 
     a {
       font-size: 1.15rem;
+      font-weight: 600;
       text-decoration: none;
-      color: $dark-blue-text-color;
+      color: $white-text-color;
+
+      &:hover {
+        color: $dark-blue-text-color;
+      }
     }
 
     .account-manager {
@@ -115,7 +121,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 0rem 3rem;
-  //   background: $header-background;
 
   .filter {
     display: flex;
@@ -124,7 +129,7 @@ body {
     gap: 4rem;
 
     h2 {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
 
     p {
@@ -139,7 +144,6 @@ body {
     gap: 3rem;
 
     select {
-      //   border: 0.1rem solid #161a30;
       border-radius: 1rem;
       padding: 0.2rem 0.8rem;
       outline: none;
@@ -257,7 +261,7 @@ body {
         flex-direction: column;
         justify-content: space-between;
         gap: 2rem;
-        width: 30rem;
+        width: 32rem;
         padding: 1rem;
 
         .item-title {
@@ -319,7 +323,6 @@ body {
           #view-btn {
             align-items: center;
             justify-content: center;
-            // width: 8rem;
             border-radius: 0.2rem;
             border: 0.1rem solid #161a30;
             padding: 0.4rem;
@@ -332,12 +335,12 @@ body {
 
             &:hover {
               cursor: pointer;
+              color: $white-text-color;
               background: linear-gradient(
                 90deg,
                 rgba(49, 48, 77, 1) 0%,
                 rgba(22, 26, 48, 1) 120%
               );
-              color: #f0ece5;
             }
           }
         }

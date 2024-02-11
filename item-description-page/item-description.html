@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share.tech - Item description page</title>
+    <link rel="stylesheet" href="./item-description.css" />
+  </head>
+  <body>
+    <header class="top-section">
+      <div class="web-title">
+        <div class="logo-box">
+          <img src="../assets/share-with-me-logo.png" alt="logo" />
+        </div>
+
+        <div class="title">
+          <h1>Share.tech</h1>
+        </div>
+      </div>
+
+      <div class="navbar">
+        <div class="account-manager">
+          <a id="loginWrapper" href="#">Login</a>
+          <a id="registerWrapper" href="#">Register</a>
+        </div>
+
+        <div class="nav-list">
+          <a href="../index.html">Home</a>
+          <a href="./add-item.html">Share with me</a>
+          <div class="my-basket">
+            <a href="#">My Favorite</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="sort-section">
+      <div class="filter">
+        <h2>Item description here:</h2>
+      </div>
+    </section>
+
+    <main class="main-section">
+      <div class="container">
+        <div class="add-card">
+          <div class="add-container">
+            <div class="add-form"></div>
+
+            <div class="add-button">
+              <button id="add" class="btn btn-outline-secondary">
+                Share item
+              </button>
+              <button id="go-back" class="btn btn-outline-secondary">
+                <a href="../index.html">Go back</a>
+              </button>
+            </div>
+          </div>
+          <div id="statusMessages"></div>
+
+          <div class="share-tech-description">
+            <p>
+              <span>Be Detailed:</span> Please be as detailed as possible in
+              each section to provide a comprehensive overview of the
+              technology.
+            </p>
+
+            <p>
+              <span>Accuracy Matters:</span> It is important to provide accurate
+              information to maintain the credibility of the platform.
+            </p>
+
+            <p>
+              <span>Use Plain Language:</span> Please use clear and simple
+              language to ensure that the information is easily understandable
+              by a broad audience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./item-description.js"></script>
+  </body>
+</html>

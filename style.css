@@ -32,6 +32,7 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 12rem;
+  border: 0.1rem solid #e5e1da;
   border-radius: 0.6rem;
   max-width: 1440px;
   margin-left: auto;
@@ -61,11 +62,15 @@ body {
 .top-section .navbar {
   display: flex;
   align-items: center;
-  gap: 10rem;
+  gap: 8rem;
 }
 .top-section .navbar a {
   font-size: 1.15rem;
+  font-weight: 600;
   text-decoration: none;
+  color: #fbf9f1;
+}
+.top-section .navbar a:hover {
   color: #211c6a;
 }
 .top-section .navbar .account-manager {
@@ -97,7 +102,7 @@ body {
   gap: 4rem;
 }
 .sort-section .filter h2 {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .sort-section .filter p #foundItems {
   font-weight: 700;
@@ -206,7 +211,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
-  width: 30rem;
+  width: 32rem;
   padding: 1rem;
 }
 .main-section .cards-container .item-card .main-box .item-title h4 {
@@ -267,8 +272,8 @@ body {
 }
 .main-section .cards-container .item-card .price-box .description-box #view-btn:hover {
   cursor: pointer;
+  color: #fbf9f1;
   background: linear-gradient(90deg, rgb(49, 48, 77) 0%, rgb(22, 26, 48) 120%);
-  color: #f0ece5;
 }
 .main-section .cards-container .item-card a {
   display: none;

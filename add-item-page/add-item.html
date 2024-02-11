@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share.tech - Share with me page</title>
+    <link rel="stylesheet" href="add-item.css" />
+  </head>
+  <body>
+    <header class="top-section">
+      <div class="web-title">
+        <div class="logo-box">
+          <img src="../assets/share-with-me-logo.png" alt="logo" />
+        </div>
+
+        <div class="title">
+          <h1>Share.tech</h1>
+        </div>
+      </div>
+
+      <div class="navbar">
+        <div class="account-manager">
+          <a id="loginWrapper" href="#">Login</a>
+          <a id="registerWrapper" href="#">Register</a>
+        </div>
+
+        <div class="nav-list">
+          <a href="../index.html">Home</a>
+          <a href="./add-item.html">Share with me</a>
+          <div class="my-basket">
+            <a href="#">My Favorite</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="sort-section">
+      <div class="filter">
+        <h2>Share your Items here:</h2>
+      </div>
+    </section>
+
+    <main class="main-section">
+      <div class="container">
+        <div class="add-card">
+          <div class="add-container">
+            <div class="add-form">
+              <div class="primarily-info">
+                <div class="add add-type">
+                  <label for="text">Type</label>
+                  <select name="text" id="typeInput"></select>
+                </div>
+
+                <div class="add add-imgUrl">
+                  <label for="text">Image</label>
+                  <input id="imgUrlInput" type="text" placeholder="Image url" />
+                </div>
+
+                <div class="add add-brand">
+                  <label for="text">Brand</label>
+                  <input id="brandInput" type="text" placeholder="Brand name" />
+                </div>
+
+                <div class="add add-name">
+                  <label for="text">Name</label>
+                  <input id="nameInput" type="text" placeholder="Model name" />
+                </div>
+
+                <div class="add add-data">
+                  <label for="text">Launch date</label>
+                  <input
+                    id="dateInput"
+                    type="text"
+                    placeholder="xxxx-xx (date-month)"
+                  />
+                </div>
+
+                <div class="add add-selfieCamera">
+                  <label for="text">Screen resolution</label>
+                  <input
+                    id="screenResolutionInput"
+                    type="text"
+                    placeholder="24.5'' 1920 x 1080 280Hz"
+                  />
+                </div>
+
+                <div class="add add-internalRam">
+                  <label for="number">Price, Eur</label>
+                  <input
+                    id="priceEurInput"
+                    type="number"
+                    placeholder="450.22"
+                  />
+                </div>
+
+                <div class="add add-Location">
+                  <label for="text">Location</label>
+                  <input
+                    id="locationInput"
+                    type="text"
+                    placeholder="Your sharing locations..."
+                  />
+                </div>
+              </div>
+
+              <div class="secondary-info">
+                <div class="add add-internal">
+                  <label for="text">Internal</label>
+                  <input
+                    id="internalInput"
+                    type="text"
+                    placeholder="256GB, 8GB RAM"
+                  />
+                </div>
+
+                <div class="add add-cpu">
+                  <label for="text">CPU</label>
+                  <input
+                    id="cpuInput"
+                    type="text"
+                    placeholder="AMD Ryzen 7 6800H"
+                  />
+                </div>
+
+                <div class="add add-gpu">
+                  <label for="text">GPU</label>
+                  <input
+                    id="gpuInput"
+                    type="text"
+                    placeholder="Radeon RX 6800S 4GB"
+                  />
+                </div>
+
+                <div class="add add-camera">
+                  <label for="text">Camera</label>
+                  <input
+                    id="cameraInput"
+                    type="text"
+                    placeholder="FHD (1080p) webcam"
+                  />
+                </div>
+
+                <div class="add add-description">
+                  <label for="text">Item description</label>
+                  <input
+                    id="descriptionInput"
+                    type="text"
+                    placeholder="Info about your product..."
+                  />
+                </div>
+
+                <div class="add add-moreInfoUrl">
+                  <label for="text">Additional Image</label>
+                  <input
+                    id="imgUrlFullInput"
+                    type="text"
+                    placeholder="Additional Image url"
+                  />
+                </div>
+
+                <div class="add add-moreInfoUrl">
+                  <label for="text">More Info Url</label>
+                  <input
+                    id="moreInfoUrlInput"
+                    type="text"
+                    placeholder="https://www.gsmarena.com/apple_iphone_15_pro_max-12548.php"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="add-button">
+              <button id="add" class="btn btn-outline-secondary">
+                Share item
+              </button>
+              <button id="go-back" class="btn btn-outline-secondary">
+                <a href="../index.html">Go back</a>
+              </button>
+            </div>
+          </div>
+          <div id="statusMessages"></div>
+
+          <div class="share-tech-description">
+            <p>
+              <span>Be Detailed:</span> Please be as detailed as possible in
+              each section to provide a comprehensive overview of the
+              technology.
+            </p>
+
+            <p>
+              <span>Accuracy Matters:</span> It is important to provide accurate
+              information to maintain the credibility of the platform.
+            </p>
+
+            <p>
+              <span>Use Plain Language:</span> Please use clear and simple
+              language to ensure that the information is easily understandable
+              by a broad audience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./add-item-page.js"></script>
+  </body>
+</html>
