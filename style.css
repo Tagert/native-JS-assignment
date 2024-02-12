@@ -62,7 +62,7 @@ body {
 .top-section .navbar {
   display: flex;
   align-items: center;
-  gap: 8rem;
+  gap: 10rem;
 }
 .top-section .navbar a {
   font-size: 1.15rem;

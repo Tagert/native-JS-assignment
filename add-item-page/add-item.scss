@@ -6,6 +6,8 @@ $white-text-color: #fbf9f1;
 $grey-text-color: #e5e1da;
 $dark-blue-text-color: #211c6a;
 
+$main-box-shadow: 0.3rem 0.3rem 0.4rem 0.15rem rgba(229, 225, 218, 0.15);
+
 $header-background: linear-gradient(
   270deg,
   rgba(146, 199, 207, 1) 0%,
@@ -83,7 +85,7 @@ body {
   .navbar {
     display: flex;
     align-items: center;
-    gap: 8rem;
+    gap: 10rem;
 
     a {
       font-size: 1.15rem;
@@ -120,7 +122,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 0rem 3rem;
-  //   background: $header-background;
 
   .filter {
     display: flex;
@@ -138,7 +139,7 @@ body {
   .add-card {
     display: flex;
     justify-content: center;
-    gap: 0.45rem;
+    gap: 0.9rem;
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
@@ -182,6 +183,7 @@ body {
           border: 0.1rem solid $dark-blue-text-color;
           border-radius: 0.4rem;
           padding: 0.4rem;
+          box-shadow: 0.15rem 0.15rem 0.15rem $grey-text-color;
           outline: none;
 
           &::placeholder {
@@ -244,27 +246,59 @@ body {
 
     #statusMessages {
       h1 {
-        font-size: 1.5rem;
+        padding-top: 1rem;
+        font-size: 0.85rem;
       }
     }
 
     .share-tech-description {
       display: flex;
       flex-direction: column;
-      gap: 0.9rem;
       height: 100%;
-      max-width: 40.25rem;
-      border: 0.1rem solid $grey-text-color;
-      border-radius: 0.4rem;
-      padding: 2rem;
+      gap: 0.9rem;
 
-      p {
-        font-size: 0.85rem;
-        text-align: justify;
-        line-height: 1.2rem;
+      .share-tech {
+        gap: 0.9rem;
+        max-width: 40.25rem;
+        border: 0.1rem solid $grey-text-color;
+        border-radius: 0.4rem;
+        padding: 2rem;
 
-        span {
-          font-weight: 700;
+        p {
+          font-size: 0.85rem;
+          text-align: justify;
+          line-height: 1.2rem;
+
+          &:nth-child(3) {
+            border-bottom: 0.1rem solid $grey-text-color;
+            padding-bottom: 0.5rem;
+          }
+
+          span {
+            font-weight: 700;
+          }
+        }
+      }
+
+      .description-form {
+        .add-description {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          border: 0.1rem solid $grey-text-color;
+          border-radius: 0.4rem;
+          padding: 2rem;
+
+          textarea {
+            padding: 0.4rem;
+            max-width: 50%;
+            height: 6rem;
+            line-height: 1.5;
+            border-radius: 0.4rem;
+            border: 0.1rem solid $dark-blue-text-color;
+            box-shadow: 0.15rem 0.15rem 0.15rem $grey-text-color;
+            resize: none;
+          }
         }
       }
     }

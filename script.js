@@ -14,38 +14,11 @@ const fetchApi = async () => {
     const items = await res.json();
     items.sort((a, b) => a.priceEur - b.priceEur);
     foundedItems.innerText = items.length;
-    // phonesData = phones;
     return items;
   } catch (error) {
     console.error(error);
     return [];
   }
-};
-
-//   const deleteAndRefresh = async (phoneId) => {
-//     try {
-//       const res = await fetch(
-//         `https://65bb606a52189914b5bbe878.mockapi.io/phones/${phoneId}`,
-//         { method: "DELETE" }
-//       );
-
-//       if (!res.ok) {
-//         throw new Error(
-//           `Failed to delete phone with id ${phoneId}. Status code: ${res.status}`
-//         );
-//       }
-
-//       console.log(`Phone with id ${phoneId} has been deleted.`);
-//       await initPage();
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-
-const initPage = async () => {
-  const items = await fetchApi();
-  console.log(items);
-  renderCards(items);
 };
 
 const renderCards = (itemsArray) => {
@@ -57,16 +30,6 @@ const renderCards = (itemsArray) => {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("item-card");
     cardDiv.dataset.itemId = itemId;
-
-    // cardDiv.addEventListener("mouseenter", () => {
-    //   techSpecLinkA.style.display = "block";
-    //   removeButton.style.display = "flex";
-    // });
-
-    // cardDiv.addEventListener("mouseleave", () => {
-    //   techSpecLinkA.style.display = "none";
-    //   removeButton.style.display = "none";
-    // });
 
     const imageDiv = document.createElement("div");
     imageDiv.classList.add("image-box");
@@ -117,6 +80,25 @@ const renderCards = (itemsArray) => {
     viewButton.setAttribute("id", "view-btn");
     viewButton.innerText = "View product";
 
+    //redirect to another page
+    const navigateToDescriptionPage = (itemId) => {
+      const itemPageUrl = `./item-description-page/item-description.html?id=${itemId}`;
+      window.location.href = itemPageUrl;
+    };
+
+    cardDiv.addEventListener("click", (event) => {
+      const clickedButton = event.target.closest("#view-btn");
+      const clickedImage = event.target.closest(".image-box");
+
+      if (clickedButton) {
+        localStorage.setItem("itemId", item.id);
+        navigateToDescriptionPage(item.id);
+      } else if (clickedImage) {
+        localStorage.setItem("itemId", item.id);
+        navigateToDescriptionPage(item.id);
+      }
+    });
+
     cardsContainer.append(cardDiv);
     cardDiv.append(imageDiv, mainDiv, priceDiv);
     imageDiv.append(imgUrl);
@@ -134,5 +116,81 @@ const renderCards = (itemsArray) => {
     descriptionDiv.append(priceEurParagraph, viewButton);
   });
 };
+
+cardsContainer.addEventListener("click", async (event) => {
+  const removeButton = event.target.closest(".btn");
+  if (removeButton) {
+    const cardDiv = removeButton.closest(".phone-card");
+    const phoneId = cardDiv.dataset.phoneId;
+    await deleteAndRefresh(phoneId);
+  }
+});
+
+const initPage = async () => {
+  const items = await fetchApi();
+  console.log(items);
+  renderCards(items);
+};
+
+// const userLogin = () => {
+//   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+//   const passwordRegex = /^.{6,}$/;
+
+//   const userName = document.getElementById("userName");
+//   const password = document.getElementById("password");
+//   const userNameValue = document.getElementById("userName").value;
+//   const passwordValue = document.getElementById("password").value;
+//   const errorElement = document.querySelector(".error");
+//   const userNameInfo = document.querySelector(".username-info");
+//   const passwordInfo = document.querySelector(".password-info");
+//   const loginCard = document.querySelector(".login-card");
+
+//   const isValidEmail = emailRegex.test(userNameValue);
+//   const isValidPassword = passwordRegex.test(passwordValue);
+
+//   const resetLoginWindow = () => {
+//     loginCard.classList.remove("active-login-card");
+//     userName.setAttribute("style", "border: 0.1rem solid black;");
+//     password.setAttribute("style", "border: 0.1rem solid black;");
+//     errorElement.textContent = "";
+//     userName.value = "";
+//     password.value = "";
+//     userNameInfo.textContent = "";
+//     passwordInfo.textContent = "";
+//   };
+
+//   if (isValidEmail && isValidPassword) {
+//     localStorage.setItem("userName", userNameValue);
+//     errorElement.textContent = "Login was successful.";
+//     errorElement.style.color = "green";
+//     setTimeout(resetLoginWindow, 2000);
+//   } else {
+//     errorElement.textContent = "";
+//   }
+
+//   if (userNameValue === "") {
+//     userNameInfo.textContent = "Please enter an email.";
+//     userNameInfo.style.color = "brown";
+//   } else if (!isValidEmail) {
+//     userNameInfo.textContent = "Please provide a properly formatted email.";
+//     userNameInfo.style.color = "brown";
+//   } else {
+//     userName.setAttribute("style", "border: 0.1rem solid green;");
+//     userNameInfo.textContent = "";
+//   }
+
+//   if (passwordValue === "") {
+//     passwordInfo.textContent = "Please enter a password.";
+//     passwordInfo.style.color = "brown";
+//   } else if (!isValidPassword) {
+//     passwordInfo.textContent = "Password must be at least 6 characters";
+//     passwordInfo.style.color = "brown";
+//   } else {
+//     password.setAttribute("style", "border: 0.1rem solid green;");
+//     passwordInfo.textContent = "";
+//   }
+
+//   return "test";
+// };
 
 initPage();

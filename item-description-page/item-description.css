@@ -62,7 +62,7 @@ body {
 .top-section .navbar {
   display: flex;
   align-items: center;
-  gap: 8rem;
+  gap: 10rem;
 }
 .top-section .navbar a {
   font-size: 1.15rem;
@@ -105,39 +105,65 @@ body {
   font-size: 1rem;
 }
 
-.main-section .add-card {
+.main-section .card-container {
   display: flex;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 0.9rem;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0rem 3rem;
 }
-.main-section .add-card .title h2 {
-  font-size: 1rem;
-  color: #211c6a;
-}
-.main-section .add-card .add-container {
+.main-section .card-container .left-side-box {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  justify-content: center;
+  width: 50%;
   gap: 0.9rem;
+  border: 0.1rem solid #e5e1da;
+  border-radius: 0.4rem;
 }
-.main-section .add-card .add-container .add-form {
-  display: flex;
-  gap: 0.9rem;
-}
-.main-section .add-card .add-container .add-form .add {
+.main-section .card-container .left-side-box .image-box {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 100%;
+  padding: 2rem;
+  overflow: hidden;
+  cursor: pointer;
 }
-.main-section .add-card .add-button {
+.main-section .card-container .left-side-box .image-box img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main-section .card-container .right-side-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.9rem;
+  width: 50%;
+}
+.main-section .card-container .right-side-box .remove-description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  border: 0.1rem solid #e5e1da;
+  border-radius: 0.4rem;
+  padding: 2rem;
+}
+.main-section .card-container .right-side-box .remove-description p {
+  font-size: 0.85rem;
+  text-align: justify;
+  line-height: 1.2rem;
+}
+.main-section .card-container .right-side-box .remove-description p span {
+  font-weight: 700;
+}
+.main-section .card-container .right-side-box .remove-description .remove-button {
   display: flex;
   justify-content: center;
   gap: 2rem;
 }
-.main-section .add-card .add-button button {
+.main-section .card-container .right-side-box .remove-description .remove-button button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,37 +176,65 @@ body {
   color: #161a30;
   background: linear-gradient(270deg, rgb(227, 225, 217) 0%, rgb(242, 239, 229) 100%);
 }
-.main-section .add-card .add-button button:hover {
+.main-section .card-container .right-side-box .remove-description .remove-button button:hover {
   cursor: pointer;
   color: #fbf9f1;
   background: linear-gradient(90deg, rgb(49, 48, 77) 0%, rgb(22, 26, 48) 120%);
 }
-.main-section .add-card .add-button button a {
-  text-decoration: none;
-  padding: 0.8rem 2rem;
-  color: #161a30;
+.main-section .card-container .right-side-box .remove-description #statusMessages h1 {
+  padding-top: 1rem;
+  font-size: 1rem;
+  color: green;
 }
-.main-section .add-card .add-button button a:hover {
-  color: white;
-}
-.main-section .add-card #statusMessages h1 {
-  font-size: 1.5rem;
-}
-.main-section .add-card .share-tech-description {
+.main-section .card-container .right-side-box .item-description .specification-box {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  height: 100%;
-  max-width: 40.25rem;
+  gap: 0.5rem;
   border: 0.1rem solid #e5e1da;
   border-radius: 0.4rem;
   padding: 2rem;
 }
-.main-section .add-card .share-tech-description p {
+.main-section .card-container .right-side-box .item-description .specification-box h4 {
+  padding: 0.5rem 0rem;
+}
+.main-section .card-container .right-side-box .item-description .specification-box h4:nth-last-child(2) {
+  border-top: 0.1rem solid #e5e1da;
+  padding-top: 1rem;
+}
+.main-section .card-container .right-side-box .item-description .specification-box p {
   font-size: 0.85rem;
   text-align: justify;
   line-height: 1.2rem;
 }
-.main-section .add-card .share-tech-description p span {
-  font-weight: 700;
+.main-section .card-container .right-side-box .item-description .specification-box p:nth-child(8) {
+  padding-bottom: 0.5rem;
+}
+.main-section .card-container .right-side-box .item-description .specification-box .price-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 1rem 0rem;
+  border-bottom: 0.1rem solid #e5e1da;
+}
+.main-section .card-container .right-side-box .item-description .specification-box .price-box p {
+  font-size: 1.7rem;
+}
+.main-section .card-container .right-side-box .item-description .specification-box .price-box #addFavorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 9rem;
+  border-radius: 0.4rem;
+  border: 0.1rem solid #161a30;
+  padding: 0.6rem;
+  color: #161a30;
+  background: linear-gradient(270deg, rgb(227, 225, 217) 0%, rgb(242, 239, 229) 100%);
+}
+.main-section .card-container .right-side-box .item-description .specification-box .price-box #addFavorite:hover {
+  cursor: pointer;
+  color: #fbf9f1;
+  background: linear-gradient(90deg, rgb(49, 48, 77) 0%, rgb(22, 26, 48) 120%);
 }/*# sourceMappingURL=item-description.css.map */

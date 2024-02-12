@@ -26,9 +26,9 @@
 
         <div class="nav-list">
           <a href="../index.html">Home</a>
-          <a href="./add-item.html">Share with me</a>
+          <a href="./add-item.html">Share</a>
           <div class="my-basket">
-            <a href="#">My Favorite</a>
+            <a href="#">Favorite</a>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
 
     <section class="sort-section">
       <div class="filter">
-        <h2>Share your Items here:</h2>
+        <h2>Share your Item:</h2>
       </div>
     </section>
 
@@ -47,27 +47,27 @@
             <div class="add-form">
               <div class="primarily-info">
                 <div class="add add-type">
-                  <label for="text">Type</label>
+                  <label for="typeInput">Type</label>
                   <select name="text" id="typeInput"></select>
                 </div>
 
                 <div class="add add-imgUrl">
-                  <label for="text">Image</label>
+                  <label for="imgUrlInput">Image</label>
                   <input id="imgUrlInput" type="text" placeholder="Image url" />
                 </div>
 
                 <div class="add add-brand">
-                  <label for="text">Brand</label>
+                  <label for="brandInput">Brand</label>
                   <input id="brandInput" type="text" placeholder="Brand name" />
                 </div>
 
                 <div class="add add-name">
-                  <label for="text">Name</label>
+                  <label for="nameInput">Name</label>
                   <input id="nameInput" type="text" placeholder="Model name" />
                 </div>
 
                 <div class="add add-data">
-                  <label for="text">Launch date</label>
+                  <label for="dateInput">Launch date</label>
                   <input
                     id="dateInput"
                     type="text"
@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="add add-selfieCamera">
-                  <label for="text">Screen resolution</label>
+                  <label for="screenResolutionInput">Screen resolution</label>
                   <input
                     id="screenResolutionInput"
                     type="text"
@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="add add-internalRam">
-                  <label for="number">Price, Eur</label>
+                  <label for="priceEurInput">Price, Eur</label>
                   <input
                     id="priceEurInput"
                     type="number"
@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="add add-Location">
-                  <label for="text">Location</label>
+                  <label for="locationInput">Location</label>
                   <input
                     id="locationInput"
                     type="text"
@@ -105,7 +105,7 @@
 
               <div class="secondary-info">
                 <div class="add add-internal">
-                  <label for="text">Internal</label>
+                  <label for="internalInput">Internal</label>
                   <input
                     id="internalInput"
                     type="text"
@@ -114,7 +114,7 @@
                 </div>
 
                 <div class="add add-cpu">
-                  <label for="text">CPU</label>
+                  <label for="cpuInput">CPU</label>
                   <input
                     id="cpuInput"
                     type="text"
@@ -123,7 +123,7 @@
                 </div>
 
                 <div class="add add-gpu">
-                  <label for="text">GPU</label>
+                  <label for="gpuInput">GPU</label>
                   <input
                     id="gpuInput"
                     type="text"
@@ -132,7 +132,7 @@
                 </div>
 
                 <div class="add add-camera">
-                  <label for="text">Camera</label>
+                  <label for="cameraInput">Camera</label>
                   <input
                     id="cameraInput"
                     type="text"
@@ -141,7 +141,7 @@
                 </div>
 
                 <div class="add add-description">
-                  <label for="text">Item description</label>
+                  <label for="descriptionInput">Item description</label>
                   <input
                     id="descriptionInput"
                     type="text"
@@ -150,7 +150,7 @@
                 </div>
 
                 <div class="add add-moreInfoUrl">
-                  <label for="text">Additional Image</label>
+                  <label for="imgUrlFullInput">Additional Image</label>
                   <input
                     id="imgUrlFullInput"
                     type="text"
@@ -159,7 +159,7 @@
                 </div>
 
                 <div class="add add-moreInfoUrl">
-                  <label for="text">More Info Url</label>
+                  <label for="moreInfoUrlInput">More Info Url</label>
                   <input
                     id="moreInfoUrlInput"
                     type="text"
@@ -178,30 +178,47 @@
               </button>
             </div>
           </div>
-          <div id="statusMessages"></div>
 
           <div class="share-tech-description">
-            <p>
-              <span>Be Detailed:</span> Please be as detailed as possible in
-              each section to provide a comprehensive overview of the
-              technology.
-            </p>
+            <div class="share-tech">
+              <p>
+                <span>Be Detailed:</span> Please be as detailed as possible in
+                each section to provide a comprehensive overview of the
+                technology.
+              </p>
 
-            <p>
-              <span>Accuracy Matters:</span> It is important to provide accurate
-              information to maintain the credibility of the platform.
-            </p>
+              <p>
+                <span>Accuracy Matters:</span> It is important to provide
+                accurate information to maintain the credibility of the
+                platform.
+              </p>
 
-            <p>
-              <span>Use Plain Language:</span> Please use clear and simple
-              language to ensure that the information is easily understandable
-              by a broad audience.
-            </p>
+              <p>
+                <span>Use Plain Language:</span> Please use clear and simple
+                language to ensure that the information is easily understandable
+                by a broad audience.
+              </p>
+
+              <div id="statusMessages">
+                <h1>Please fill in all fields with at least 3 characters.</h1>
+              </div>
+            </div>
+
+            <div class="description-form">
+              <div class="add add-description">
+                <label for="descriptionInput">Item description</label>
+                <textarea
+                  id="descriptionInput"
+                  name="textarea"
+                  placeholder="Info about your item..."
+                ></textarea>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </main>
 
-    <script src="./add-item-page.js"></script>
+    <script src="./add-item.js"></script>
   </body>
 </html>

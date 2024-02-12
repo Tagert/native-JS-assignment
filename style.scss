@@ -84,7 +84,7 @@ body {
   .navbar {
     display: flex;
     align-items: center;
-    gap: 8rem;
+    gap: 10rem;
 
     a {
       font-size: 1.15rem;
@@ -223,7 +223,6 @@ body {
     min-height: 100%;
     min-width: 83%;
     border-radius: 1rem;
-    // background: $header-background;
 
     .item-card {
       display: flex;
@@ -360,3 +359,95 @@ body {
     }
   }
 }
+
+// .login-card {
+//   position: absolute;
+//   top: -50%;
+//   left: 30%;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 0.5rem;
+//   transition: all 0.5s linear;
+//   transform: translate(0%, -50%);
+
+//   .active-login {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     gap: 0.5rem;
+//     font-size: 0.9rem;
+
+//     .input {
+//       display: flex;
+//       gap: 0.5rem;
+//       min-width: 12rem;
+
+//       input {
+//         max-width: 12rem;
+//         border: 0.1rem solid #161a30;
+//         border-radius: 1rem;
+//         padding: 0.3rem;
+//         outline: none;
+
+//         &::placeholder {
+//           padding-left: 0.2rem;
+//         }
+
+//         &[type="email"] {
+//           padding-left: 0.8rem;
+//         }
+
+//         &[type="password"] {
+//           padding-left: 0.8rem;
+//         }
+//       }
+
+//       .username-info-error,
+//       .password-info-error {
+//         display: flex;
+//         align-items: center;
+//         p {
+//           font-size: 0.8rem;
+//         }
+//       }
+//     }
+//   }
+
+//   .btn-info {
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     justify-content: flex-start;
+//     gap: 0.5rem;
+
+//     #btn {
+//       min-width: 5rem;
+//       border: 0.1rem solid #161a30;
+//       border-radius: 1rem;
+//       padding: 0.25rem;
+//       outline: none;
+//       cursor: pointer;
+//       color: #161a30;
+//       background: linear-gradient(
+//         270deg,
+//         rgba(227, 225, 217, 1) 0%,
+//         rgba(242, 239, 229, 1) 100%
+//       );
+
+//       &:hover {
+//         font-weight: bold;
+//       }
+//     }
+
+//     .error {
+//       font-size: 0.8rem;
+//     }
+//   }
+// }
+
+// .active-login-card {
+//   position: absolute;
+//   display: flex;
+//   left: 30%;
+//   top: 50%;
+// }
