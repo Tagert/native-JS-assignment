@@ -80,30 +80,24 @@ body {
     }
   }
 
-  .navbar {
+  .account-manager {
     display: flex;
-    align-items: center;
-    gap: 10rem;
+    gap: 2rem;
+  }
 
-    a {
-      font-size: 1.15rem;
-      font-weight: 600;
-      text-decoration: none;
-      color: $white-text-color;
+  .nav-list {
+    display: flex;
+    gap: 2rem;
+  }
 
-      &:hover {
-        color: $dark-blue-text-color;
-      }
-    }
+  a {
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: $white-text-color;
 
-    .account-manager {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-list {
-      display: flex;
-      gap: 2rem;
+    &:hover {
+      color: $dark-blue-text-color;
     }
   }
 }
@@ -260,6 +254,10 @@ body {
 
             &:nth-child(8) {
               padding-bottom: 0.5rem;
+
+              span {
+                font-weight: 700;
+              }
             }
           }
 

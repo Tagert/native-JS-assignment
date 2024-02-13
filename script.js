@@ -1,6 +1,23 @@
 "use strict";
+const sortSection = document.querySelector(".sort-section");
+const mainSection = document.querySelector(".main-section");
 const cardsContainer = document.querySelector(".cards-container");
+const navList = document.querySelector(".nav-list");
+
 const foundedItems = document.getElementById("foundItems");
+const sortSelectedElement = document.getElementById("sort");
+const loginCard = document.querySelector(".login-card");
+const loginWrapper = document.getElementById("loginWrapper");
+const loginButton = document.getElementById("loginBtn");
+const LoginModalButton = document.getElementById("loginCloseBtn");
+
+const laptopCheckbox = document.getElementById("laptops");
+const monitorCheckbox = document.getElementById("monitors");
+const tabletCheckbox = document.getElementById("tablets");
+const phoneCheckbox = document.getElementById("phones");
+
+let itemsData = [];
+let selectedType = [];
 
 const fetchApi = async () => {
   try {
@@ -14,6 +31,7 @@ const fetchApi = async () => {
     const items = await res.json();
     items.sort((a, b) => a.priceEur - b.priceEur);
     foundedItems.innerText = items.length;
+    itemsData = items;
     return items;
   } catch (error) {
     console.error(error);
@@ -33,6 +51,9 @@ const renderCards = (itemsArray) => {
 
     const imageDiv = document.createElement("div");
     imageDiv.classList.add("image-box");
+
+    const leftBox = document.createElement("div");
+    leftBox.classList.add("left-box");
 
     const imgUrl = document.createElement("img");
     imgUrl.src = item.imgUrl;
@@ -65,7 +86,10 @@ const renderCards = (itemsArray) => {
     internalParagraph.innerText = item.internal;
 
     const locationParagraph = document.createElement("p");
-    locationParagraph.innerText = `Location: ${item.location}`;
+    locationParagraph.innerText = `Location: `;
+
+    const locationSpan = document.createElement("span");
+    locationSpan.innerText = `${item.location}`;
 
     const priceDiv = document.createElement("div");
     priceDiv.classList.add("price-box");
@@ -80,7 +104,6 @@ const renderCards = (itemsArray) => {
     viewButton.setAttribute("id", "view-btn");
     viewButton.innerText = "View product";
 
-    //redirect to another page
     const navigateToDescriptionPage = (itemId) => {
       const itemPageUrl = `./item-description-page/item-description.html?id=${itemId}`;
       window.location.href = itemPageUrl;
@@ -100,7 +123,8 @@ const renderCards = (itemsArray) => {
     });
 
     cardsContainer.append(cardDiv);
-    cardDiv.append(imageDiv, mainDiv, priceDiv);
+    leftBox.append(imageDiv, mainDiv);
+    cardDiv.append(leftBox, priceDiv);
     imageDiv.append(imgUrl);
     mainDiv.append(itemTitleDiv, specificationDiv);
     itemTitleDiv.append(itemTitleHeading);
@@ -112,19 +136,11 @@ const renderCards = (itemsArray) => {
       internalParagraph,
       locationParagraph
     );
+    locationParagraph.append(locationSpan);
     priceDiv.append(descriptionDiv);
     descriptionDiv.append(priceEurParagraph, viewButton);
   });
 };
-
-cardsContainer.addEventListener("click", async (event) => {
-  const removeButton = event.target.closest(".btn");
-  if (removeButton) {
-    const cardDiv = removeButton.closest(".phone-card");
-    const phoneId = cardDiv.dataset.phoneId;
-    await deleteAndRefresh(phoneId);
-  }
-});
 
 const initPage = async () => {
   const items = await fetchApi();
@@ -132,65 +148,130 @@ const initPage = async () => {
   renderCards(items);
 };
 
-// const userLogin = () => {
-//   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-//   const passwordRegex = /^.{6,}$/;
+const handleCheckboxChange = async () => {
+  selectedType = Array.from(
+    document.querySelectorAll('input[name="type"]:checked')
+  ).map((checkbox) => checkbox.value);
 
-//   const userName = document.getElementById("userName");
-//   const password = document.getElementById("password");
-//   const userNameValue = document.getElementById("userName").value;
-//   const passwordValue = document.getElementById("password").value;
-//   const errorElement = document.querySelector(".error");
-//   const userNameInfo = document.querySelector(".username-info");
-//   const passwordInfo = document.querySelector(".password-info");
-//   const loginCard = document.querySelector(".login-card");
+  const selectedSortOption = sortSelectedElement.value;
+  await filterAndRender(selectedType, selectedSortOption);
+};
 
-//   const isValidEmail = emailRegex.test(userNameValue);
-//   const isValidPassword = passwordRegex.test(passwordValue);
+laptopCheckbox.addEventListener("change", handleCheckboxChange);
+monitorCheckbox.addEventListener("change", handleCheckboxChange);
+tabletCheckbox.addEventListener("change", handleCheckboxChange);
+phoneCheckbox.addEventListener("change", handleCheckboxChange);
 
-//   const resetLoginWindow = () => {
-//     loginCard.classList.remove("active-login-card");
-//     userName.setAttribute("style", "border: 0.1rem solid black;");
-//     password.setAttribute("style", "border: 0.1rem solid black;");
-//     errorElement.textContent = "";
-//     userName.value = "";
-//     password.value = "";
-//     userNameInfo.textContent = "";
-//     passwordInfo.textContent = "";
-//   };
+const filterAndRender = async (selectedType, selectedSortOption) => {
+  let filteredItems = [...itemsData];
 
-//   if (isValidEmail && isValidPassword) {
-//     localStorage.setItem("userName", userNameValue);
-//     errorElement.textContent = "Login was successful.";
-//     errorElement.style.color = "green";
-//     setTimeout(resetLoginWindow, 2000);
-//   } else {
-//     errorElement.textContent = "";
-//   }
+  if (selectedType.length > 0 && !selectedType.includes("All")) {
+    filteredItems = filteredItems.filter((item) =>
+      selectedType.includes(item.type)
+    );
+  }
 
-//   if (userNameValue === "") {
-//     userNameInfo.textContent = "Please enter an email.";
-//     userNameInfo.style.color = "brown";
-//   } else if (!isValidEmail) {
-//     userNameInfo.textContent = "Please provide a properly formatted email.";
-//     userNameInfo.style.color = "brown";
-//   } else {
-//     userName.setAttribute("style", "border: 0.1rem solid green;");
-//     userNameInfo.textContent = "";
-//   }
+  const sortingFunction = sortFunctions[selectedSortOption] || ((a, b) => 0);
+  const sortedItems = filteredItems.sort(sortingFunction);
 
-//   if (passwordValue === "") {
-//     passwordInfo.textContent = "Please enter a password.";
-//     passwordInfo.style.color = "brown";
-//   } else if (!isValidPassword) {
-//     passwordInfo.textContent = "Password must be at least 6 characters";
-//     passwordInfo.style.color = "brown";
-//   } else {
-//     password.setAttribute("style", "border: 0.1rem solid green;");
-//     passwordInfo.textContent = "";
-//   }
+  renderCards(sortedItems);
 
-//   return "test";
-// };
+  foundedItems.innerText = sortedItems.length;
+};
+
+const sortFunctions = {
+  sortPriceAs: (a, b) => a.priceEur - b.priceEur,
+  sortPriceDes: (a, b) => b.priceEur - a.priceEur,
+  sortName: (a, b) => a.brand.localeCompare(b.brand),
+};
+
+sortSelectedElement.addEventListener("change", async () => {
+  const selectedSortOption = sortSelectedElement.value;
+  await filterAndRender(selectedType, selectedSortOption);
+});
+
+const openLoginModal = () => {
+  sortSection.classList.toggle("blur");
+  mainSection.classList.toggle("blur");
+  loginCard.classList.toggle("active-login-card");
+
+  loginCard.style.filter = "blur(0)";
+};
+
+const closeLoginModal = () => {
+  sortSection.classList.remove("blur");
+  mainSection.classList.remove("blur");
+  loginCard.classList.remove("active-login-card");
+};
+
+loginWrapper.addEventListener("click", openLoginModal);
+
+LoginModalButton.addEventListener("click", closeLoginModal);
+sortSection.addEventListener("click", closeLoginModal);
+mainSection.addEventListener("click", closeLoginModal);
+
+const userLogin = () => {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const passwordRegex = /^.{6,}$/;
+
+  const userName = document.getElementById("userName");
+  const password = document.getElementById("password");
+  const userNameValue = document.getElementById("userName").value;
+  const passwordValue = document.getElementById("password").value;
+  const errorElement = document.querySelector(".error");
+  const userNameInfo = document.querySelector(".username-info");
+  const passwordInfo = document.querySelector(".password-info");
+  const loginCard = document.querySelector(".login-card");
+
+  const isValidEmail = emailRegex.test(userNameValue);
+  const isValidPassword = passwordRegex.test(passwordValue);
+
+  const resetLoginWindow = () => {
+    sortSection.classList.remove("blur");
+    mainSection.classList.remove("blur");
+    loginCard.classList.remove("active-login-card");
+    userName.setAttribute("style", "border: 0.1rem solid black;");
+    password.setAttribute("style", "border: 0.1rem solid black;");
+    errorElement.textContent = "";
+    userName.value = "";
+    password.value = "";
+    userNameInfo.textContent = "";
+    passwordInfo.textContent = "";
+  };
+
+  if (isValidEmail && isValidPassword) {
+    localStorage.setItem("userName", userNameValue);
+    errorElement.textContent = "Login was successful.";
+    errorElement.style.color = "green";
+    setTimeout(resetLoginWindow, 2000);
+  } else {
+    errorElement.textContent = "";
+  }
+
+  if (userNameValue === "") {
+    userNameInfo.textContent = "Please enter an email.";
+    userNameInfo.style.color = "brown";
+  } else if (!isValidEmail) {
+    userNameInfo.textContent = "Please provide a properly formatted email.";
+    userNameInfo.style.color = "brown";
+  } else {
+    userName.setAttribute("style", "border: 0.1rem solid green;");
+    userNameInfo.textContent = "";
+  }
+
+  if (passwordValue === "") {
+    passwordInfo.textContent = "Please enter a password.";
+    passwordInfo.style.color = "brown";
+  } else if (!isValidPassword) {
+    passwordInfo.textContent = "Password must be at least 6 characters";
+    passwordInfo.style.color = "brown";
+  } else {
+    password.setAttribute("style", "border: 0.1rem solid green;");
+    passwordInfo.textContent = "";
+  }
+
+  return "test";
+};
 
 initPage();
+loginButton.addEventListener("click", userLogin);

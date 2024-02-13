@@ -98,7 +98,7 @@ const createCardObj = () => {
     moreInfoUrlInputValue,
   ];
 
-  const invalidInputs = inputsValue.filter((input) => input.trim().length < 3);
+  const invalidInputs = inputsValue.filter((input) => input.trim().length < 2);
 
   inputs.forEach((input, index) => {
     input.style.borderColor = invalidInputs.includes(inputsValue[index])
@@ -109,7 +109,7 @@ const createCardObj = () => {
   if (invalidInputs.length > 0) {
     displayStatus(
       false,
-      "Please fill in all fields with at least 3 characters."
+      "Please fill in all fields with at least 2 characters."
     );
     return;
   }

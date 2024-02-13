@@ -55,7 +55,10 @@ const renderCardWithDescription = (item) => {
   const internalParagraph = document.createElement("p");
   internalParagraph.innerText = item.internal;
   const locationParagraph = document.createElement("p");
-  locationParagraph.innerText = `Location: ${item.location}`;
+  locationParagraph.innerText = `Location: `;
+  const locationSpan = document.createElement("span");
+  locationSpan.innerText = `${item.location}`;
+  locationParagraph.append(locationSpan);
   const productInfoTitle = document.createElement("h4");
   productInfoTitle.innerText = "Product Information:";
   const productInfoParagraph = document.createElement("p");

@@ -18,19 +18,18 @@
         </div>
       </div>
 
-      <div class="navbar">
-        <div class="account-manager">
-          <a id="loginWrapper" href="#">Login</a>
-          <a id="registerWrapper" href="#">Register</a>
+      <div class="nav-list">
+        <a href="../index.html">Home</a>
+        <a href="../index.html">About</a>
+        <a href="./add-item.html">Share with me</a>
+        <div class="my-basket">
+          <a href="#">Favorite</a>
         </div>
+      </div>
 
-        <div class="nav-list">
-          <a href="../index.html">Home</a>
-          <a href="./add-item.html">Share</a>
-          <div class="my-basket">
-            <a href="#">Favorite</a>
-          </div>
-        </div>
+      <div class="account-manager">
+        <a id="loginWrapper" href="#">Log in</a>
+        <a id="registerWrapper" href="#">Register</a>
       </div>
     </header>
 
@@ -51,10 +50,10 @@
                   <select name="text" id="typeInput"></select>
                 </div>
 
-                <div class="add add-imgUrl">
+                <!-- <div class="add add-imgUrl">
                   <label for="imgUrlInput">Image</label>
                   <input id="imgUrlInput" type="text" placeholder="Image url" />
-                </div>
+                </div> -->
 
                 <div class="add add-brand">
                   <label for="brandInput">Brand</label>
@@ -140,13 +139,18 @@
                   />
                 </div>
 
-                <div class="add add-description">
+                <!-- <div class="add add-description">
                   <label for="descriptionInput">Item description</label>
                   <input
                     id="descriptionInput"
                     type="text"
                     placeholder="Info about your product..."
                   />
+                </div> -->
+
+                <div class="add add-imgUrl">
+                  <label for="imgUrlInput">Image</label>
+                  <input id="imgUrlInput" type="text" placeholder="Image url" />
                 </div>
 
                 <div class="add add-moreInfoUrl">
@@ -200,7 +204,7 @@
               </p>
 
               <div id="statusMessages">
-                <h1>Please fill in all fields with at least 3 characters.</h1>
+                <h1>Please fill in all fields with at least 2 characters.</h1>
               </div>
             </div>
 

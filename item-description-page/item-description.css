@@ -59,27 +59,22 @@ body {
   font-weight: 500;
   color: #211c6a;
 }
-.top-section .navbar {
+.top-section .account-manager {
   display: flex;
-  align-items: center;
-  gap: 10rem;
+  gap: 2rem;
 }
-.top-section .navbar a {
+.top-section .nav-list {
+  display: flex;
+  gap: 2rem;
+}
+.top-section a {
   font-size: 1.15rem;
   font-weight: 600;
   text-decoration: none;
   color: #fbf9f1;
 }
-.top-section .navbar a:hover {
+.top-section a:hover {
   color: #211c6a;
-}
-.top-section .navbar .account-manager {
-  display: flex;
-  gap: 2rem;
-}
-.top-section .navbar .nav-list {
-  display: flex;
-  gap: 2rem;
 }
 
 .sort-section {
@@ -208,6 +203,9 @@ body {
 }
 .main-section .card-container .right-side-box .item-description .specification-box p:nth-child(8) {
   padding-bottom: 0.5rem;
+}
+.main-section .card-container .right-side-box .item-description .specification-box p:nth-child(8) span {
+  font-weight: 700;
 }
 .main-section .card-container .right-side-box .item-description .specification-box .price-box {
   position: relative;

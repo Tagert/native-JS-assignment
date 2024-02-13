@@ -22,6 +22,10 @@ body {
   color: #211c6a;
 }
 
+.blur {
+  filter: blur(0.4rem);
+}
+
 .container {
   margin: 1rem;
 }
@@ -59,27 +63,161 @@ body {
   font-weight: 500;
   color: #211c6a;
 }
-.top-section .navbar {
+.top-section .nav-list {
+  display: flex;
+  gap: 2rem;
+  overflow: hidden;
+}
+@media screen and (max-width: 1050px) {
+  .top-section .nav-list {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 108%;
+    right: 0%;
+    border-radius: 0.6rem;
+    padding: 2rem;
+    background-color: rgb(89, 180, 195);
+  }
+}
+.top-section .login-card {
+  position: absolute;
+  display: flex;
+  top: -100%;
+  left: 50%;
+  transition: all 0.5s linear;
+  z-index: 10;
+}
+.top-section .login-card .login-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 21.5rem;
+  gap: 0.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(33, 28, 106, 0.35);
+  background-color: #fff;
+}
+.top-section .login-card .login-modal #loginCloseBtn {
+  width: 1.2rem;
+  align-self: flex-end;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.top-section .login-card .login-modal .active-login {
   display: flex;
   align-items: center;
-  gap: 10rem;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.9rem;
+  font-size: 0.9rem;
 }
-.top-section .navbar a {
-  font-size: 1.15rem;
+.top-section .login-card .login-modal .active-login p {
+  font-size: 0.8rem;
+}
+.top-section .login-card .login-modal .active-login .input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 12rem;
+}
+.top-section .login-card .login-modal .active-login .input input {
+  max-width: 12rem;
+  border: 0.1rem solid #211c6a;
+  border-radius: 1rem;
+  padding: 0.3rem;
+  outline: none;
+}
+.top-section .login-card .login-modal .active-login .input input::-moz-placeholder {
+  padding-left: 0.2rem;
+  color: #211c6a;
+  opacity: 0.5;
+}
+.top-section .login-card .login-modal .active-login .input input::placeholder {
+  padding-left: 0.2rem;
+  color: #211c6a;
+  opacity: 0.5;
+}
+.top-section .login-card .login-modal .active-login .input input[type=email] {
+  padding-left: 0.8rem;
+}
+.top-section .login-card .login-modal .active-login .input input[type=password] {
+  padding-left: 0.8rem;
+}
+.top-section .login-card .login-modal .active-login .input .username-info-error,
+.top-section .login-card .login-modal .active-login .input .password-info-error {
+  display: flex;
+  align-items: center;
+}
+.top-section .login-card .login-modal .active-login .input .username-info-error p,
+.top-section .login-card .login-modal .active-login .input .password-info-error p {
+  font-size: 0.8rem;
+}
+.top-section .login-card .login-modal .btn-info {
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+.top-section .login-card .login-modal .btn-info #loginBtn {
+  min-width: 5rem;
+  border: 0.1rem solid #161a30;
+  border-radius: 1rem;
+  padding: 0.25rem;
+  outline: none;
+  cursor: pointer;
+  color: #161a30;
+  background: linear-gradient(270deg, rgb(227, 225, 217) 0%, rgb(242, 239, 229) 100%);
+}
+.top-section .login-card .login-modal .btn-info #loginBtn:hover {
+  font-weight: bold;
+}
+.top-section .login-card .login-modal .btn-info .error {
+  font-size: 0.8rem;
+}
+.top-section .active-login-card {
+  position: absolute;
+  display: flex;
+  top: 200%;
+  left: 50%;
+}
+.top-section .account-manager {
+  display: flex;
+  gap: 2rem;
+}
+.top-section .menu-wrapper {
+  display: none;
+}
+.top-section .menu-wrapper #Hamburger-Round {
+  fill: #ffffff;
+}
+@media screen and (max-width: 1050px) {
+  .top-section .menu-wrapper {
+    display: flex;
+  }
+}
+.top-section .toggle {
+  display: none;
+}
+.top-section a {
+  font-size: 1.1rem;
   font-weight: 600;
   text-decoration: none;
   color: #fbf9f1;
 }
-.top-section .navbar a:hover {
+.top-section a:hover {
   color: #211c6a;
-}
-.top-section .navbar .account-manager {
-  display: flex;
-  gap: 2rem;
-}
-.top-section .navbar .nav-list {
-  display: flex;
-  gap: 2rem;
 }
 
 .sort-section {
@@ -129,10 +267,10 @@ body {
 }
 .main-section .choose-side {
   min-height: 100%;
-  min-width: 16%;
+  min-width: 10.8rem;
   border: 0.1rem solid #e5e1da;
   border-radius: 0.6rem;
-  padding: 3rem;
+  padding: 2rem 3rem;
 }
 .main-section .choose-side .type-box {
   display: flex;
@@ -140,7 +278,7 @@ body {
   gap: 2rem;
 }
 .main-section .choose-side .type-box .title-description h2 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .main-section .choose-side .type-box .title-type {
   display: flex;
@@ -151,6 +289,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.2rem;
+  cursor: pointer;
 }
 .main-section .choose-side .type-box .title-type .title-wrapper img {
   width: 0.9rem;
@@ -172,16 +311,14 @@ body {
 .main-section .cards-container {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   gap: 0.9rem;
   min-height: 100%;
-  min-width: 83%;
   border-radius: 1rem;
 }
 .main-section .cards-container .item-card {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 14rem;
   width: 100%;
   border: 0.1rem solid #e5e1da;
   border-radius: 0.4rem;
@@ -189,10 +326,21 @@ body {
   background-color: transparent;
   transition: all 150ms linear;
 }
+@media screen and (max-width: 1200px) {
+  .main-section .cards-container .item-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .main-section .cards-container .item-card:hover {
   box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
 }
-.main-section .cards-container .item-card .image-box {
+.main-section .cards-container .item-card .left-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.main-section .cards-container .item-card .left-box .image-box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -202,38 +350,41 @@ body {
   overflow: hidden;
   cursor: pointer;
 }
-.main-section .cards-container .item-card .image-box img {
+.main-section .cards-container .item-card .left-box .image-box img {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.main-section .cards-container .item-card .main-box {
+.main-section .cards-container .item-card .left-box .main-box {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
-  width: 32rem;
+  width: 70%;
   padding: 1rem;
 }
-.main-section .cards-container .item-card .main-box .item-title h4 {
+.main-section .cards-container .item-card .left-box .main-box .item-title h4 {
   font-size: 1rem;
 }
-.main-section .cards-container .item-card .main-box .specification-box {
+.main-section .cards-container .item-card .left-box .main-box .specification-box {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
   text-align: left;
 }
-.main-section .cards-container .item-card .main-box .specification-box p {
+.main-section .cards-container .item-card .left-box .main-box .specification-box p {
   position: relative;
   font-size: 0.9rem;
 }
-.main-section .cards-container .item-card .main-box .specification-box p:first-child::before {
+.main-section .cards-container .item-card .left-box .main-box .specification-box p:first-child::before {
   content: "";
   position: absolute;
   top: 100%;
   display: block;
   width: 10.8rem;
   border-bottom: 0.1rem solid #e5e1da;
+}
+.main-section .cards-container .item-card .left-box .main-box .specification-box p span {
+  font-weight: 700;
 }
 .main-section .cards-container .item-card .price-box {
   position: relative;
@@ -250,12 +401,17 @@ body {
   height: 10rem;
   border-left: 0.1rem solid #e5e1da;
 }
+@media screen and (max-width: 1200px) {
+  .main-section .cards-container .item-card .price-box::before {
+    height: 0;
+  }
+}
 .main-section .cards-container .item-card .price-box .description-box {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  gap: 0.1rem;
+  gap: 0.5rem;
   text-align: left;
 }
 .main-section .cards-container .item-card .price-box .description-box p {
