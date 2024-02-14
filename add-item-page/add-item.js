@@ -1,5 +1,6 @@
 "use strict";
 
+let newCard;
 const addPropertyButton = document.getElementById("add");
 
 const typeInput = document.getElementById("typeInput");
@@ -41,27 +42,6 @@ function displayStatus(isOk, text) {
 }
 
 const createCardObj = () => {
-  const typeInputValue = document.getElementById("typeInput").value;
-  const imgUrlInputValue = document.getElementById("imgUrlInput").value;
-  const brandInputValue = document.getElementById("brandInput").value;
-  const nameInputValue = document.getElementById("nameInput").value;
-  const dateInputValue = document.getElementById("dateInput").value;
-  const screenResolutionInputValue = document.getElementById(
-    "screenResolutionInput"
-  ).value;
-  const priceEurInputValue = document.getElementById("priceEurInput").value;
-  const locationInputValue = document.getElementById("locationInput").value;
-
-  const internalInputValue = document.getElementById("internalInput").value;
-  const cpuInputValue = document.getElementById("cpuInput").value;
-  const gpuInputValue = document.getElementById("gpuInput").value;
-  const cameraInputValue = document.getElementById("cameraInput").value;
-  const descriptionInputValue =
-    document.getElementById("descriptionInput").value;
-  const imgUrlFullInputValue = document.getElementById("imgUrlFullInput").value;
-  const moreInfoUrlInputValue =
-    document.getElementById("moreInfoUrlInput").value;
-
   const inputs = [
     typeInput,
     imgUrlInput,
@@ -81,21 +61,21 @@ const createCardObj = () => {
   ];
 
   const inputsValue = [
-    typeInputValue,
-    imgUrlInputValue,
-    brandInputValue,
-    nameInputValue,
-    dateInputValue,
-    screenResolutionInputValue,
-    priceEurInputValue,
-    locationInputValue,
-    internalInputValue,
-    cpuInputValue,
-    gpuInputValue,
-    cameraInputValue,
-    descriptionInputValue,
-    imgUrlFullInputValue,
-    moreInfoUrlInputValue,
+    typeInput.value,
+    imgUrlInput.value,
+    brandInput.value,
+    nameInput.value,
+    dateInput.value,
+    screenResolutionInput.value,
+    priceEurInput.value,
+    locationInput.value,
+    internalInput.value,
+    cpuInput.value,
+    gpuInput.value,
+    cameraInput.value,
+    descriptionInput.value,
+    imgUrlFullInput.value,
+    moreInfoUrlInput.value,
   ];
 
   const invalidInputs = inputsValue.filter((input) => input.trim().length < 2);
@@ -114,7 +94,7 @@ const createCardObj = () => {
     return;
   }
 
-  const newCard = {
+  newCard = {
     type: inputsValue[0],
     imgUrl: inputsValue[1],
     brand: inputsValue[2],
@@ -134,27 +114,37 @@ const createCardObj = () => {
 
   statusMessages.innerHTML = "";
 
-  fetch("https://65bb606a52189914b5bbe878.mockapi.io/items", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(newCard),
-  })
-    .then((res) => {
-      if (res.ok) {
-        displayStatus(res.ok, "Item successfully added.");
-        setTimeout(() => {
-          window.location.assign("../index.html");
-        }, 1500);
-      } else {
-        throw new Error(res.statusText);
+  postCardApi();
+};
+
+const postCardApi = async () => {
+  try {
+    const response = await fetch(
+      "https://65bb606a52189914b5bbe878.mockapi.io/items",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newCard),
       }
-    })
-    .catch((error) => {
-      displayStatus(false, `Something went wrong. Server returned: ${error}.`);
-    });
+    );
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    displayStatus(true, "Item successfully added.");
+    setTimeout(() => {
+      window.location.assign("../index.html");
+    }, 1500);
+  } catch (error) {
+    displayStatus(
+      false,
+      `Something went wrong. Server returned: ${error.message || error}.`
+    );
+  }
 };
 
 addPropertyButton.addEventListener("click", createCardObj);

@@ -1,21 +1,10 @@
+@use "src/variables";
+
+@use "src/top-section";
+@use "src/footer";
 @use "src/responsive";
 
 @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap");
-
-$main-color: #92c7cf;
-$secondary-color: #aad7d9;
-
-$white-text-color: #fbf9f1;
-$grey-text-color: #e5e1da;
-$dark-blue-text-color: #211c6a;
-
-$color-white: #ffffff;
-
-$header-background: linear-gradient(
-  270deg,
-  rgba(146, 199, 207, 1) 0%,
-  rgba(170, 215, 217, 1) 100%
-);
 
 *,
 *::before,
@@ -37,7 +26,7 @@ body {
   font-size: 1rem;
   letter-spacing: 0.1rem;
   padding: 1rem;
-  color: $dark-blue-text-color;
+  color: variables.$dark-blue-text-color;
 }
 
 .blur {
@@ -48,229 +37,12 @@ body {
   margin: 1rem;
 }
 
-.top-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 12rem;
-  border: 0.1rem solid $grey-text-color;
-  border-radius: 0.6rem;
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0rem 3rem;
-  background: linear-gradient(
-    90deg,
-    rgba(239, 243, 150, 1) 0%,
-    rgba(89, 180, 195, 1) 65%
-  );
-
-  .web-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-
-    .logo-box {
-      max-width: 8rem;
-      img {
-        object-fit: cover;
-      }
-    }
-
-    .title {
-      h1 {
-        font-family: "Kalam", cursive;
-        font-size: 1.8rem;
-        font-weight: 500;
-        color: $dark-blue-text-color;
-      }
-    }
-  }
-
-  .nav-list {
-    display: flex;
-    gap: 2rem;
-    overflow: hidden;
-
-    @include responsive.lg {
-      position: absolute;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      // max-height: 0px;
-      top: 108%;
-      right: 0%;
-      border-radius: 0.6rem;
-      padding: 2rem;
-      background-color: rgba(89, 180, 195, 1);
-    }
-  }
-
-  .login-card {
-    position: absolute;
-    display: flex;
-    top: -100%;
-    left: 50%;
-    transition: all 0.5s linear;
-    z-index: 10;
-
-    .login-modal {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-width: 21.5rem;
-      gap: 0.5rem;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 1rem;
-      border-radius: 0.4rem;
-      box-shadow: 0 0.2rem 0.4rem rgba(33, 28, 106, 0.35);
-      background-color: #fff;
-
-      #loginCloseBtn {
-        width: 1.2rem;
-        align-self: flex-end;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-      }
-
-      .active-login {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        flex-direction: column;
-        gap: 0.9rem;
-        font-size: 0.9rem;
-
-        p {
-          font-size: 0.8rem;
-        }
-
-        .input {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          gap: 0.5rem;
-          min-width: 12rem;
-
-          input {
-            max-width: 12rem;
-            border: 0.1rem solid $dark-blue-text-color;
-            border-radius: 1rem;
-            padding: 0.3rem;
-            outline: none;
-
-            &::placeholder {
-              padding-left: 0.2rem;
-              color: $dark-blue-text-color;
-              opacity: 0.5;
-            }
-
-            &[type="email"] {
-              padding-left: 0.8rem;
-            }
-
-            &[type="password"] {
-              padding-left: 0.8rem;
-            }
-          }
-
-          .username-info-error,
-          .password-info-error {
-            display: flex;
-            align-items: center;
-            p {
-              font-size: 0.8rem;
-            }
-          }
-        }
-      }
-
-      .btn-info {
-        position: relative;
-        flex-direction: column;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 0.5rem;
-
-        #loginBtn {
-          min-width: 5rem;
-          border: 0.1rem solid #161a30;
-          border-radius: 1rem;
-          padding: 0.25rem;
-          outline: none;
-          cursor: pointer;
-          color: #161a30;
-          background: linear-gradient(
-            270deg,
-            rgba(227, 225, 217, 1) 0%,
-            rgba(242, 239, 229, 1) 100%
-          );
-
-          &:hover {
-            font-weight: bold;
-          }
-        }
-
-        .error {
-          font-size: 0.8rem;
-        }
-      }
-    }
-  }
-
-  .active-login-card {
-    position: absolute;
-    display: flex;
-    top: 200%;
-    left: 50%;
-  }
-
-  .account-manager {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .menu-wrapper {
-    display: none;
-    #Hamburger-Round {
-      fill: $color-white;
-    }
-
-    @include responsive.lg {
-      display: flex;
-    }
-  }
-
-  .toggle {
-    display: none;
-  }
-
-  a {
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: $white-text-color;
-
-    &:hover {
-      color: $dark-blue-text-color;
-    }
-  }
-}
-
 .sort-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 3.5rem;
-  border: 0.1rem solid $grey-text-color;
+  border: 0.1rem solid variables.$grey-text-color;
   border-radius: 0.6rem;
   max-width: 1440px;
   margin-top: 0.9rem;
@@ -278,17 +50,33 @@ body {
   margin-right: auto;
   padding: 0rem 3rem;
 
+  @include responsive.sm {
+    padding: 0rem 2rem;
+  }
+
   .filter {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 4rem;
 
+    @include responsive.sm {
+      gap: 2rem;
+    }
+
+    @include responsive.s {
+      gap: 0.5rem;
+    }
+
     h2 {
       font-size: 1rem;
     }
 
     p {
+      @include responsive.s {
+        font-size: 0.9rem;
+      }
+
       #foundItems {
         font-weight: 700;
       }
@@ -300,16 +88,21 @@ body {
     gap: 3rem;
 
     select {
+      position: relative;
       border-radius: 1rem;
       padding: 0.2rem 0.8rem;
       outline: none;
+
+      @include responsive.sm {
+        width: 8rem;
+      }
     }
   }
 }
 
 .main-section {
   display: flex;
-  gap: 1%;
+  gap: 0.9rem;
   min-height: 100vh;
   max-width: 1440px;
   border-radius: 0.6rem;
@@ -317,17 +110,30 @@ body {
   margin-left: auto;
   margin-right: auto;
 
+  @include responsive.sm {
+    flex-direction: column;
+  }
+
   .choose-side {
     min-height: 100%;
     min-width: 10.8rem;
-    border: 0.1rem solid $grey-text-color;
+    border: 0.1rem solid variables.$grey-text-color;
     border-radius: 0.6rem;
     padding: 2rem 3rem;
+
+    @include responsive.sm {
+      min-width: 10rem;
+      padding: 2rem 2rem;
+    }
 
     .type-box {
       display: flex;
       flex-direction: column;
       gap: 2rem;
+
+      @include responsive.sm {
+        flex-direction: row;
+      }
 
       .title-description {
         h2 {
@@ -377,14 +183,14 @@ body {
     flex-direction: column;
     flex-grow: 1;
     gap: 0.9rem;
-    min-height: 100%;
+    // min-height: 100%;
     border-radius: 1rem;
 
     .item-card {
       display: flex;
       align-items: center;
-      width: 100%;
-      border: 0.1rem solid $grey-text-color;
+      // width: 100%;
+      border: 0.1rem solid variables.$grey-text-color;
       border-radius: 0.4rem;
       padding: 1rem 2rem;
       background-color: transparent;
@@ -393,6 +199,14 @@ body {
       @include responsive.xl {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      @include responsive.md {
+        align-items: center;
+      }
+
+      @include responsive.sm {
+        padding: 1rem 1rem;
       }
 
       &:hover {
@@ -404,15 +218,16 @@ body {
         justify-content: space-between;
         width: 100%;
 
-        @include responsive.xl {
+        @include responsive.md {
+          flex-direction: column;
+          align-items: center;
         }
 
         .image-box {
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 12rem;
-          width: 12rem;
+          max-width: 12rem;
           border-radius: 1rem;
           overflow: hidden;
           cursor: pointer;
@@ -452,7 +267,7 @@ body {
                 top: 100%;
                 display: block;
                 width: 10.8rem;
-                border-bottom: 0.1rem solid $grey-text-color;
+                border-bottom: 0.1rem solid variables.$grey-text-color;
               }
 
               span {
@@ -469,9 +284,6 @@ body {
         height: 100%;
         padding: 1rem;
 
-        @include responsive.xl {
-        }
-
         &::before {
           content: "";
           position: absolute;
@@ -479,7 +291,7 @@ body {
           left: -2rem;
           display: block;
           height: 10rem;
-          border-left: 0.1rem solid $grey-text-color;
+          border-left: 0.1rem solid variables.$grey-text-color;
 
           @include responsive.xl {
             height: 0;
@@ -493,9 +305,6 @@ body {
           height: 100%;
           gap: 0.5rem;
           text-align: left;
-
-          @include responsive.xl {
-          }
 
           p {
             font-size: 1.7rem;
@@ -516,7 +325,7 @@ body {
 
             &:hover {
               cursor: pointer;
-              color: $white-text-color;
+              color: variables.$white-text-color;
               background: linear-gradient(
                 90deg,
                 rgba(49, 48, 77, 1) 0%,

@@ -150,27 +150,4 @@ const removeApi = async (itemId) => {
   }
 };
 
-// fetch("https://65bb606a52189914b5bbe878.mockapi.io/items", {
-//     method: "POST",
-//     headers: {
-//       Accept: "application/json",
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(newCard),
-//   })
-//     .then((res) => {
-//       if (res.ok) {
-//         displayStatus(res.ok, "Item successfully added.");
-//         setTimeout(() => {
-//           window.location.assign("../index.html");
-//         }, 1500);
-//       } else {
-//         throw new Error(res.statusText);
-//       }
-//     })
-//     .catch((error) => {
-//       displayStatus(false, `Something went wrong. Server returned: ${error}.`);
-//     });
-// };
-
 initPage();

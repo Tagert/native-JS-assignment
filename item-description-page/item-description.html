@@ -18,18 +18,95 @@
         </div>
       </div>
 
-      <div class="nav-list">
-        <a href="../index.html">Home</a>
-        <a href="../index.html">About</a>
-        <a href="../add-item-page/add-item.html">Share with me</a>
-        <div class="my-basket">
-          <a href="#">Favorite</a>
+      <nav class="navbar">
+        <div class="nav-list">
+          <a href="../index.html">Home</a>
+          <a href="../index.html">About</a>
+          <a href="./item-description.html">Share</a>
+          <div class="my-basket">
+            <a href="#">Favorite</a>
+          </div>
+        </div>
+
+        <div class="account-manager">
+          <a id="loginWrapper" href="#">Log in</a>
+          <a id="registerWrapper" href="#">Register</a>
+        </div>
+      </nav>
+
+      <div class="login-card">
+        <div class="login-modal" id="loginModal">
+          <button id="loginCloseBtn">
+            <img src="./assets/x_icon.svg" alt="" />
+          </button>
+          <div class="active-login blur-content">
+            <h4>Welcome back</h4>
+            <p>Log into your Account</p>
+            <div class="input">
+              <div class="username-box">
+                <input
+                  type="email"
+                  id="userName"
+                  placeholder="Your email"
+                  autocomplete="email"
+                />
+              </div>
+
+              <div class="username-info-error">
+                <p class="username-info"></p>
+              </div>
+            </div>
+
+            <div class="input">
+              <div class="password-box">
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Your password"
+                />
+              </div>
+
+              <div class="password-info-error">
+                <p class="password-info"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-info">
+            <button id="loginBtn">Login</button>
+            <p class="error"></p>
+          </div>
         </div>
       </div>
 
-      <div class="account-manager">
-        <a id="loginWrapper" href="#">Log in</a>
-        <a id="registerWrapper" href="#">Register</a>
+      <div class="menu-wrapper">
+        <?xml version="1.0" ?><svg
+          height="25px"
+          version="1.1"
+          viewBox="0 0 25 25"
+          width="25px"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <title />
+          <desc />
+          <defs />
+          <g
+            fill="none"
+            fill-rule="evenodd"
+            id="TabBar-Icons"
+            stroke="none"
+            stroke-width="1"
+          >
+            <g fill="#000000" id="Hamburger-Round">
+              <path
+                d="M0,4 C0,2.8954305 0.889763236,2 2.00359486,2 L22.9964051,2 C24.10296,2 25,2.88772964 25,4 C25,5.1045695 24.1102368,6 22.9964051,6 L2.00359486,6 C0.897039974,6 0,5.11227036 0,4 L0,4 Z M0,12 C0,10.8954305 0.889763236,10 2.00359486,10 L22.9964051,10 C24.10296,10 25,10.8877296 25,12 C25,13.1045695 24.1102368,14 22.9964051,14 L2.00359486,14 C0.897039974,14 0,13.1122704 0,12 L0,12 Z M0,20 C0,18.8954305 0.889763236,18 2.00359486,18 L22.9964051,18 C24.10296,18 25,18.8877296 25,20 C25,21.1045695 24.1102368,22 22.9964051,22 L2.00359486,22 C0.897039974,22 0,21.1122704 0,20 L0,20 Z"
+                id="Hamburger"
+              />
+            </g>
+          </g>
+        </svg>
       </div>
     </header>
 
@@ -58,6 +135,59 @@
         </div>
       </div>
     </main>
+
+    <footer class="contact-footer">
+      <div class="contact-container">
+        <div class="contact-description">
+          <div class="logo-card">
+            <img src="../assets/share-with-me-logo.png" alt="logo" />
+          </div>
+
+          <div class="description-text">
+            <p>
+              Sparking joy in sharing moments, our friendly platform making
+              every exchange a delightful experience!
+            </p>
+            <div class="icon-list">
+              <div class="without-bg">
+                <img src="../assets/instagram.svg" alt="instagram" />
+              </div>
+              <img src="../assets/ball.svg" alt="ball" />
+              <img src="../assets/twitter.svg" alt="twitter" />
+              <img src="../assets/youtube.svg" alt="youtube" />
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-us">
+          <div class="form-box">
+            <form action="" method="get" class="form-submit">
+              <div class="form-card">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  pattern=".+@example\.com"
+                  autocomplete="on"
+                  placeholder="Your email address"
+                  required
+                />
+
+                <textarea
+                  id="descriptionInput"
+                  name="textarea"
+                  placeholder="Your message here..."
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="contact-btn">
+            <h3>Contact Us:</h3>
+            <button class="primary-btn form-btn">Send a message</button>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="./item-description.js"></script>
   </body>

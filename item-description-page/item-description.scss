@@ -1,16 +1,10 @@
+@use "../src/variables";
+
+@use "../src/top-section";
+@use "../src/footer";
+@use "../src/responsive";
+
 @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap");
-
-$main-color: #92c7cf;
-$secondary-color: #aad7d9;
-$white-text-color: #fbf9f1;
-$grey-text-color: #e5e1da;
-$dark-blue-text-color: #211c6a;
-
-$header-background: linear-gradient(
-  270deg,
-  rgba(146, 199, 207, 1) 0%,
-  rgba(170, 215, 217, 1) 100%
-);
 
 *,
 *::before,
@@ -32,74 +26,11 @@ body {
   font-size: 1rem;
   letter-spacing: 0.1rem;
   padding: 1rem;
-  color: $dark-blue-text-color;
+  color: variables.$dark-blue-text-color;
 }
 
 .container {
   margin: 1rem;
-}
-
-.top-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 12rem;
-  border: 0.1rem solid $grey-text-color;
-  border-radius: 0.6rem;
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0rem 3rem;
-  background: linear-gradient(
-    90deg,
-    rgba(239, 243, 150, 1) 0%,
-    rgba(89, 180, 195, 1) 65%
-  );
-
-  .web-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-
-    .logo-box {
-      max-width: 8rem;
-      img {
-        object-fit: cover;
-      }
-    }
-
-    .title {
-      h1 {
-        font-family: "Kalam", cursive;
-        font-size: 1.8rem;
-        font-weight: 500;
-        color: $dark-blue-text-color;
-      }
-    }
-  }
-
-  .account-manager {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .nav-list {
-    display: flex;
-    gap: 2rem;
-  }
-
-  a {
-    font-size: 1.15rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: $white-text-color;
-
-    &:hover {
-      color: $dark-blue-text-color;
-    }
-  }
 }
 
 .sort-section {
@@ -107,7 +38,7 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 3.5rem;
-  border: 0.1rem solid $grey-text-color;
+  border: 0.1rem solid variables.$grey-text-color;
   border-radius: 0.6rem;
   max-width: 1440px;
   margin-top: 0.9rem;
@@ -136,13 +67,30 @@ body {
     margin-left: auto;
     margin-right: auto;
 
+    @include responsive.lg {
+      flex-direction: column;
+      align-items: center;
+    }
+
     .left-side-box {
       display: flex;
       justify-content: center;
       width: 50%;
       gap: 0.9rem;
-      border: 0.1rem solid $grey-text-color;
+      border: 0.1rem solid variables.$grey-text-color;
       border-radius: 0.4rem;
+
+      @include responsive.md {
+        width: 65%;
+      }
+
+      @include responsive.sm {
+        width: 80%;
+      }
+
+      @include responsive.s {
+        width: 100%;
+      }
 
       .image-box {
         display: flex;
@@ -168,11 +116,23 @@ body {
       gap: 0.9rem;
       width: 50%;
 
+      @include responsive.md {
+        width: 65%;
+      }
+
+      @include responsive.sm {
+        width: 80%;
+      }
+
+      @include responsive.s {
+        width: 100%;
+      }
+
       .remove-description {
         display: flex;
         flex-direction: column;
         gap: 0.9rem;
-        border: 0.1rem solid $grey-text-color;
+        border: 0.1rem solid variables.$grey-text-color;
         border-radius: 0.4rem;
         padding: 2rem;
 
@@ -210,7 +170,7 @@ body {
 
             &:hover {
               cursor: pointer;
-              color: $white-text-color;
+              color: variables.$white-text-color;
               background: linear-gradient(
                 90deg,
                 rgba(49, 48, 77, 1) 0%,
@@ -234,7 +194,7 @@ body {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
-          border: 0.1rem solid $grey-text-color;
+          border: 0.1rem solid variables.$grey-text-color;
           border-radius: 0.4rem;
           padding: 2rem;
 
@@ -242,7 +202,7 @@ body {
             padding: 0.5rem 0rem;
 
             &:nth-last-child(2) {
-              border-top: 0.1rem solid $grey-text-color;
+              border-top: 0.1rem solid variables.$grey-text-color;
               padding-top: 1rem;
             }
           }
@@ -268,7 +228,7 @@ body {
             align-items: center;
             height: 100%;
             padding: 1rem 0rem;
-            border-bottom: 0.1rem solid $grey-text-color;
+            border-bottom: 0.1rem solid variables.$grey-text-color;
 
             p {
               font-size: 1.7rem;
@@ -292,7 +252,7 @@ body {
 
               &:hover {
                 cursor: pointer;
-                color: $white-text-color;
+                color: variables.$white-text-color;
                 background: linear-gradient(
                   90deg,
                   rgba(49, 48, 77, 1) 0%,

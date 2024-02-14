@@ -1,15 +1,18 @@
 "use strict";
+const topSection = document.querySelector(".top-selector");
 const sortSection = document.querySelector(".sort-section");
 const mainSection = document.querySelector(".main-section");
+const footerSection = document.querySelector(".contact-footer");
 const cardsContainer = document.querySelector(".cards-container");
-const navList = document.querySelector(".nav-list");
+const navbar = document.querySelector(".navbar");
+const menuWrapper = document.querySelector(".menu-wrapper");
 
 const foundedItems = document.getElementById("foundItems");
 const sortSelectedElement = document.getElementById("sort");
 const loginCard = document.querySelector(".login-card");
 const loginWrapper = document.getElementById("loginWrapper");
 const loginButton = document.getElementById("loginBtn");
-const LoginModalButton = document.getElementById("loginCloseBtn");
+const loginModalButton = document.getElementById("loginCloseBtn");
 
 const laptopCheckbox = document.getElementById("laptops");
 const monitorCheckbox = document.getElementById("monitors");
@@ -191,8 +194,10 @@ sortSelectedElement.addEventListener("change", async () => {
 });
 
 const openLoginModal = () => {
+  navbar.classList.remove("navbar-active");
   sortSection.classList.toggle("blur");
   mainSection.classList.toggle("blur");
+  footerSection.classList.toggle("blur");
   loginCard.classList.toggle("active-login-card");
 
   loginCard.style.filter = "blur(0)";
@@ -201,14 +206,22 @@ const openLoginModal = () => {
 const closeLoginModal = () => {
   sortSection.classList.remove("blur");
   mainSection.classList.remove("blur");
+  footerSection.classList.remove("blur");
   loginCard.classList.remove("active-login-card");
+};
+
+const closeMenuWrapper = () => {
+  navbar.classList.remove("navbar-active");
 };
 
 loginWrapper.addEventListener("click", openLoginModal);
 
-LoginModalButton.addEventListener("click", closeLoginModal);
+loginModalButton.addEventListener("click", closeLoginModal);
 sortSection.addEventListener("click", closeLoginModal);
 mainSection.addEventListener("click", closeLoginModal);
+
+sortSection.addEventListener("click", closeMenuWrapper);
+mainSection.addEventListener("click", closeMenuWrapper);
 
 const userLogin = () => {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -269,9 +282,11 @@ const userLogin = () => {
     password.setAttribute("style", "border: 0.1rem solid green;");
     passwordInfo.textContent = "";
   }
-
-  return "test";
 };
 
 initPage();
+
 loginButton.addEventListener("click", userLogin);
+menuWrapper.addEventListener("click", () => {
+  navbar.classList.toggle("navbar-active");
+});

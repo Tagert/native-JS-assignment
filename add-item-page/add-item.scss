@@ -1,18 +1,10 @@
+@use "../src/variables";
+
+@use "../src/top-section";
+@use "../src/footer";
+@use "../src/responsive";
+
 @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap");
-
-$main-color: #92c7cf;
-$secondary-color: #aad7d9;
-$white-text-color: #fbf9f1;
-$grey-text-color: #e5e1da;
-$dark-blue-text-color: #211c6a;
-
-$main-box-shadow: 0.3rem 0.3rem 0.4rem 0.15rem rgba(229, 225, 218, 0.15);
-
-$header-background: linear-gradient(
-  270deg,
-  rgba(146, 199, 207, 1) 0%,
-  rgba(170, 215, 217, 1) 100%
-);
 
 *,
 *::before,
@@ -34,74 +26,11 @@ body {
   font-size: 1rem;
   letter-spacing: 0.1rem;
   padding: 1rem;
-  color: $dark-blue-text-color;
+  color: variables.$dark-blue-text-color;
 }
 
 .container {
   margin: 1rem;
-}
-
-.top-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 12rem;
-  border: 0.1rem solid $grey-text-color;
-  border-radius: 0.6rem;
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0rem 3rem;
-  background: linear-gradient(
-    90deg,
-    rgba(239, 243, 150, 1) 0%,
-    rgba(89, 180, 195, 1) 65%
-  );
-
-  .web-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-
-    .logo-box {
-      max-width: 8rem;
-      img {
-        object-fit: cover;
-      }
-    }
-
-    .title {
-      h1 {
-        font-family: "Kalam", cursive;
-        font-size: 1.8rem;
-        font-weight: 500;
-        color: $dark-blue-text-color;
-      }
-    }
-  }
-
-  .account-manager {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .nav-list {
-    display: flex;
-    gap: 2rem;
-  }
-
-  a {
-    font-size: 1.15rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: $white-text-color;
-
-    &:hover {
-      color: $dark-blue-text-color;
-    }
-  }
 }
 
 .sort-section {
@@ -109,7 +38,7 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 3.5rem;
-  border: 0.1rem solid $grey-text-color;
+  border: 0.1rem solid variables.$grey-text-color;
   border-radius: 0.6rem;
   max-width: 1440px;
   margin-top: 0.9rem;
@@ -139,10 +68,15 @@ body {
     margin-right: auto;
     padding: 0rem 3rem;
 
+    @include responsive.lg {
+      align-items: center;
+      flex-direction: column-reverse;
+    }
+
     .title {
       h2 {
         font-size: 1rem;
-        color: $dark-blue-text-color;
+        color: variables.$dark-blue-text-color;
       }
     }
 
@@ -156,12 +90,16 @@ body {
         display: flex;
         gap: 0.9rem;
 
+        @include responsive.sm {
+          flex-direction: column;
+        }
+
         .primarily-info,
         .secondary-info {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
-          border: 0.1rem solid $grey-text-color;
+          border: 0.1rem solid variables.$grey-text-color;
           border-radius: 0.4rem;
           padding: 2rem;
         }
@@ -174,10 +112,10 @@ body {
         input,
         select {
           height: 2rem;
-          border: 0.1rem solid $dark-blue-text-color;
+          border: 0.1rem solid variables.$dark-blue-text-color;
           border-radius: 0.4rem;
           padding: 0.4rem;
-          box-shadow: 0.15rem 0.15rem 0.15rem $grey-text-color;
+          box-shadow: 0.15rem 0.15rem 0.15rem variables.$grey-text-color;
           outline: none;
 
           &::placeholder {
@@ -189,7 +127,7 @@ body {
           font-size: 0.85rem;
           font-weight: 500;
           padding-bottom: 0.4rem;
-          color: $dark-blue-text-color;
+          color: variables.$dark-blue-text-color;
         }
       }
     }
@@ -208,7 +146,6 @@ body {
         border-radius: 0.4rem;
         border: 0.1rem solid #161a30;
         padding: 0.6rem;
-        margin-top: 1rem;
         color: #161a30;
         background: linear-gradient(
           270deg,
@@ -218,7 +155,7 @@ body {
 
         &:hover {
           cursor: pointer;
-          color: $white-text-color;
+          color: variables.$white-text-color;
           background: linear-gradient(
             90deg,
             rgba(49, 48, 77, 1) 0%,
@@ -252,9 +189,11 @@ body {
       gap: 0.9rem;
 
       .share-tech {
+        display: flex;
+        flex-direction: column;
         gap: 0.9rem;
         max-width: 40.25rem;
-        border: 0.1rem solid $grey-text-color;
+        border: 0.1rem solid variables.$grey-text-color;
         border-radius: 0.4rem;
         padding: 2rem;
 
@@ -264,7 +203,7 @@ body {
           line-height: 1.2rem;
 
           &:nth-child(3) {
-            border-bottom: 0.1rem solid $grey-text-color;
+            border-bottom: 0.1rem solid variables.$grey-text-color;
             padding-bottom: 0.5rem;
           }
 
@@ -279,19 +218,23 @@ body {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
-          border: 0.1rem solid $grey-text-color;
+          border: 0.1rem solid variables.$grey-text-color;
           border-radius: 0.4rem;
           padding: 2rem;
 
           textarea {
             padding: 0.4rem;
-            max-width: 50%;
+            max-width: 18rem;
             height: 6rem;
             line-height: 1.5;
             border-radius: 0.4rem;
-            border: 0.1rem solid $dark-blue-text-color;
-            box-shadow: 0.15rem 0.15rem 0.15rem $grey-text-color;
+            border: 0.1rem solid variables.$dark-blue-text-color;
+            box-shadow: 0.15rem 0.15rem 0.15rem variables.$grey-text-color;
             resize: none;
+          }
+
+          @include responsive.lg {
+            min-width: 60%;
           }
         }
       }
