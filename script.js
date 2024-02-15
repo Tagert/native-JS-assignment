@@ -6,7 +6,7 @@ import {
   closeLoginModal,
   closeMenuWrapper,
 } from "./src/menu-wrapper.js";
-import { contactWindow } from "../src/contact-window.js";
+import { contactWindow } from "./src/contact-window.js";
 
 const sendFormButton = document.getElementById("formBtn");
 
