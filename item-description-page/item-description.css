@@ -391,6 +391,8 @@
 .contact-footer .contact-container .contact-us .contact-btn {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 0.9rem;
 }
 .contact-footer .contact-container .contact-us .contact-btn h3 {
@@ -404,6 +406,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  width: 7.2rem;
   border-radius: 0.2rem;
   border: 0.1rem solid #161a30;
   padding: 0.4rem;
@@ -414,6 +417,9 @@
   cursor: pointer;
   color: #fbf9f1;
   background: linear-gradient(90deg, rgb(49, 48, 77) 0%, rgb(22, 26, 48) 120%);
+}
+.contact-footer .contact-container .contact-us .contact-btn .errorMessage {
+  font-size: 0.75rem;
 }
 
 *,
@@ -437,6 +443,10 @@ body {
   letter-spacing: 0.1rem;
   padding: 1rem;
   color: #211c6a;
+}
+
+.blur {
+  filter: blur(0.4rem);
 }
 
 .container {

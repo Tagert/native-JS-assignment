@@ -29,6 +29,10 @@ body {
   color: variables.$dark-blue-text-color;
 }
 
+.blur {
+  filter: blur(0.4rem);
+}
+
 .container {
   margin: 1rem;
 }
@@ -136,6 +140,7 @@ body {
       display: flex;
       justify-content: center;
       gap: 2rem;
+      margin: 1rem 0rem;
 
       button {
         display: flex;

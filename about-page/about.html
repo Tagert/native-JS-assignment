@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Share.tech - Home page</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Share.tech - About page</title>
+    <link rel="stylesheet" href="./about.css" />
   </head>
   <body>
     <header class="top-section">
       <div class="web-title">
         <div class="logo-box">
-          <img src="./assets/share-with-me-logo.png" alt="logo" />
+          <img src="../assets/share-with-me-logo.png" alt="logo" />
         </div>
 
         <div class="title">
@@ -20,9 +20,9 @@
 
       <nav class="navbar">
         <div class="nav-list">
-          <a href="./index.html">Home</a>
-          <a href="./about-page/about.html">About</a>
-          <a href="./add-item-page/add-item.html">Share</a>
+          <a href="../index.html">Home</a>
+          <a href="./about.html">About</a>
+          <a href="../add-item-page/add-item.html">Share</a>
           <div class="my-basket">
             <a href="#">Favorite</a>
           </div>
@@ -37,7 +37,7 @@
       <div class="login-card">
         <div class="login-modal" id="loginModal">
           <button id="loginCloseBtn">
-            <img src="./assets/x_icon.svg" alt="" />
+            <img src="../assets/x_icon.svg" alt="" />
           </button>
           <div class="active-login blur-content">
             <h4>Welcome back</h4>
@@ -112,76 +112,43 @@
 
     <section class="sort-section">
       <div class="filter">
-        <h2>Items filter:</h2>
-        <p><span id="foundItems"></span> items found</p>
-      </div>
-
-      <div class="sort">
-        <div class="by-order">
-          <select name="sort" id="sort">
-            <option id="sortPriceAs" value="sortPriceAs">
-              Sort by price ascending
-            </option>
-
-            <option id="sortPriceDes" value="sortPriceDes">
-              Sort by price descending
-            </option>
-
-            <option id="sortName" value="sortName">Sort by name</option>
-          </select>
-        </div>
+        <h2>Welcome:</h2>
       </div>
     </section>
 
     <main class="main-section">
-      <div class="choose-side">
-        <div class="type-box">
-          <div class="title-description">
-            <h2>Choose:</h2>
+      <div class="container">
+        <div class="card-container">
+          <div class="description-side-box">
+            <p>
+              <span> Welcome to Share.tech,</span> the nexus of seamless tech
+              sharing and collaboration! Envisioned with the idea that
+              technology should simplify and amplify connections, we've crafted
+              an innovative space for effortless person-to-person tech exchange.
+            </p>
+
+            <p>
+              <span>Embark on this tech-sharing journey with us,</span> where
+              every interaction is an opportunity to expand your tech horizons
+              and build meaningful connections. Where tech sharing is elevated,
+              and every collaboration is a step toward a more connected future.
+            </p>
           </div>
 
-          <div class="title-type">
-            <div class="title-wrapper">
-              <img id="typeIconWrapper" src="./assets/plus_icon.svg" alt="" />
-              <h3>Type</h3>
-            </div>
-
-            <div class="select-type laptops-type">
-              <input type="checkbox" id="laptops" name="type" value="Laptops" />
-              <label for="laptops">Laptops</label>
-            </div>
-
-            <div class="select-type monitors-type">
-              <input
-                type="checkbox"
-                id="monitors"
-                name="type"
-                value="Monitors"
-              />
-              <label for="monitors">Monitors</label>
-            </div>
-
-            <div class="select-type tablets-type">
-              <input type="checkbox" id="tablets" name="type" value="Tablets" />
-              <label for="tablets">Tablets</label>
-            </div>
-
-            <div class="select-type phones-type">
-              <input type="checkbox" id="phones" name="type" value="Phones" />
-              <label for="phones">Phones</label>
+          <div class="visual-side-box">
+            <div class="image-box">
+              <img src="../assets/tech-background.jpg" alt="" />
             </div>
           </div>
         </div>
       </div>
-
-      <div class="cards-container"></div>
     </main>
 
     <footer class="contact-footer">
       <div class="contact-container">
         <div class="contact-description">
           <div class="logo-card">
-            <img src="./assets/share-with-me-logo.png" alt="logo" />
+            <img src="../assets/share-with-me-logo.png" alt="logo" />
           </div>
 
           <div class="description-text">
@@ -191,11 +158,11 @@
             </p>
             <div class="icon-list">
               <div class="without-bg">
-                <img src="./assets/instagram.svg" alt="" />
+                <img src="../assets/instagram.svg" alt="instagram" />
               </div>
-              <img src="./assets/ball.svg" alt="" />
-              <img src="./assets/twitter.svg" alt="" />
-              <img src="./assets/youtube.svg" alt="" />
+              <img src="../assets/ball.svg" alt="ball" />
+              <img src="../assets/twitter.svg" alt="twitter" />
+              <img src="../assets/youtube.svg" alt="youtube" />
             </div>
           </div>
         </div>
@@ -230,6 +197,7 @@
         </div>
       </div>
     </footer>
-    <script type="module" src="script.js"></script>
+
+    <script type="module" src="./about.js"></script>
   </body>
 </html>

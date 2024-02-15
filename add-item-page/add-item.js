@@ -1,7 +1,24 @@
 "use strict";
 
+import { userLogin } from "../src/user-login.js";
+import {
+  openLoginModal,
+  closeLoginModal,
+  closeMenuWrapper,
+} from "../src/menu-wrapper.js";
+import { contactWindow } from "../src/contact-window.js";
+
+const sendFormButton = document.getElementById("formBtn");
+
 let newCard;
-const addPropertyButton = document.getElementById("add");
+const addItemButton = document.getElementById("add");
+const loginWrapper = document.getElementById("loginWrapper");
+const loginButton = document.getElementById("loginBtn");
+const loginModalButton = document.getElementById("loginCloseBtn");
+const navbar = document.querySelector(".navbar");
+const menuWrapper = document.querySelector(".menu-wrapper");
+const sortSection = document.querySelector(".sort-section");
+const mainSection = document.querySelector(".main-section");
 
 const typeInput = document.getElementById("typeInput");
 const imgUrlInput = document.getElementById("imgUrlInput");
@@ -147,4 +164,20 @@ const postCardApi = async () => {
   }
 };
 
-addPropertyButton.addEventListener("click", createCardObj);
+addItemButton.addEventListener("click", createCardObj);
+
+loginButton.addEventListener("click", userLogin);
+menuWrapper.addEventListener("click", () => {
+  navbar.classList.toggle("navbar-active");
+});
+
+loginWrapper.addEventListener("click", openLoginModal);
+
+loginModalButton.addEventListener("click", closeLoginModal);
+sortSection.addEventListener("click", closeLoginModal);
+mainSection.addEventListener("click", closeLoginModal);
+
+sortSection.addEventListener("click", closeMenuWrapper);
+mainSection.addEventListener("click", closeMenuWrapper);
+
+sendFormButton.addEventListener("click", contactWindow);

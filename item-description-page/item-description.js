@@ -1,5 +1,21 @@
 "use strict";
 
+import { userLogin } from "../src/user-login.js";
+import {
+  openLoginModal,
+  closeLoginModal,
+  closeMenuWrapper,
+} from "../src/menu-wrapper.js";
+import { contactWindow } from "../src/contact-window.js";
+
+const sendFormButton = document.getElementById("formBtn");
+const loginButton = document.getElementById("loginBtn");
+const menuWrapper = document.querySelector(".menu-wrapper");
+const loginModalButton = document.getElementById("loginCloseBtn");
+const sortSection = document.querySelector(".sort-section");
+const mainSection = document.querySelector(".main-section");
+const navbar = document.querySelector(".navbar");
+
 const itemId = localStorage.getItem("itemId");
 const imageDiv = document.querySelector(".image-box");
 const specificationBox = document.querySelector(".specification-box");
@@ -112,13 +128,13 @@ const renderCardWithDescription = (item) => {
   });
 };
 
-function displayStatus(isOk, text) {
+const displayStatus = (isOk, text) => {
   const statusDiv = document.getElementById("statusMessages");
   const statusText = document.createElement("h1");
-  statusDiv.style.color = isOk ? "03d3b2" : "red";
+  statusDiv.style.color = isOk ? "green" : "red";
   statusText.innerHTML = text;
   statusDiv.append(statusText);
-}
+};
 
 const initPage = async () => {
   const item = await selectedIdFetchApi();
@@ -144,10 +160,26 @@ const removeApi = async (itemId) => {
     }
   } catch (error) {
     displayStatus(
-      !error.ok,
+      !res.ok,
       `Failed to delete item with id ${itemId}. Status code: ${error.status}`
     );
   }
 };
 
 initPage();
+
+loginButton.addEventListener("click", userLogin);
+menuWrapper.addEventListener("click", () => {
+  navbar.classList.toggle("navbar-active");
+});
+
+loginWrapper.addEventListener("click", openLoginModal);
+
+loginModalButton.addEventListener("click", closeLoginModal);
+sortSection.addEventListener("click", closeLoginModal);
+mainSection.addEventListener("click", closeLoginModal);
+
+sortSection.addEventListener("click", closeMenuWrapper);
+mainSection.addEventListener("click", closeMenuWrapper);
+
+sendFormButton.addEventListener("click", contactWindow);

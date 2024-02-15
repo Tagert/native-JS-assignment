@@ -1,15 +1,26 @@
 "use strict";
-const topSection = document.querySelector(".top-selector");
+
+import { userLogin } from "./src/user-login.js";
+import {
+  openLoginModal,
+  closeLoginModal,
+  closeMenuWrapper,
+} from "./src/menu-wrapper.js";
+import { contactWindow } from "../src/contact-window.js";
+
+const sendFormButton = document.getElementById("formBtn");
+
 const sortSection = document.querySelector(".sort-section");
 const mainSection = document.querySelector(".main-section");
-const footerSection = document.querySelector(".contact-footer");
 const cardsContainer = document.querySelector(".cards-container");
 const navbar = document.querySelector(".navbar");
 const menuWrapper = document.querySelector(".menu-wrapper");
+const titleType = document.querySelector(".title-type");
+const typeWrapper = document.querySelector(".title-wrapper");
+const typeIconWrapper = document.getElementById("typeIconWrapper");
 
 const foundedItems = document.getElementById("foundItems");
 const sortSelectedElement = document.getElementById("sort");
-const loginCard = document.querySelector(".login-card");
 const loginWrapper = document.getElementById("loginWrapper");
 const loginButton = document.getElementById("loginBtn");
 const loginModalButton = document.getElementById("loginCloseBtn");
@@ -193,26 +204,25 @@ sortSelectedElement.addEventListener("change", async () => {
   await filterAndRender(selectedType, selectedSortOption);
 });
 
-const openLoginModal = () => {
-  navbar.classList.remove("navbar-active");
-  sortSection.classList.toggle("blur");
-  mainSection.classList.toggle("blur");
-  footerSection.classList.toggle("blur");
-  loginCard.classList.toggle("active-login-card");
+initPage();
 
-  loginCard.style.filter = "blur(0)";
-};
+loginButton.addEventListener("click", userLogin);
+menuWrapper.addEventListener("click", () => {
+  navbar.classList.toggle("navbar-active");
+});
 
-const closeLoginModal = () => {
-  sortSection.classList.remove("blur");
-  mainSection.classList.remove("blur");
-  footerSection.classList.remove("blur");
-  loginCard.classList.remove("active-login-card");
-};
+typeWrapper.addEventListener("click", () => {
+  titleType.classList.toggle("title-type-active");
 
-const closeMenuWrapper = () => {
-  navbar.classList.remove("navbar-active");
-};
+  const currentIconSrc = typeIconWrapper.getAttribute("src");
+  const plusIconPath = "./assets/plus_icon.svg";
+  const minusIconPath = "./assets/minus_round_icon.svg";
+
+  const newIconSrc =
+    currentIconSrc === plusIconPath ? minusIconPath : plusIconPath;
+
+  typeIconWrapper.setAttribute("src", newIconSrc);
+});
 
 loginWrapper.addEventListener("click", openLoginModal);
 
@@ -223,70 +233,4 @@ mainSection.addEventListener("click", closeLoginModal);
 sortSection.addEventListener("click", closeMenuWrapper);
 mainSection.addEventListener("click", closeMenuWrapper);
 
-const userLogin = () => {
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const passwordRegex = /^.{6,}$/;
-
-  const userName = document.getElementById("userName");
-  const password = document.getElementById("password");
-  const userNameValue = document.getElementById("userName").value;
-  const passwordValue = document.getElementById("password").value;
-  const errorElement = document.querySelector(".error");
-  const userNameInfo = document.querySelector(".username-info");
-  const passwordInfo = document.querySelector(".password-info");
-  const loginCard = document.querySelector(".login-card");
-
-  const isValidEmail = emailRegex.test(userNameValue);
-  const isValidPassword = passwordRegex.test(passwordValue);
-
-  const resetLoginWindow = () => {
-    sortSection.classList.remove("blur");
-    mainSection.classList.remove("blur");
-    loginCard.classList.remove("active-login-card");
-    userName.setAttribute("style", "border: 0.1rem solid black;");
-    password.setAttribute("style", "border: 0.1rem solid black;");
-    errorElement.textContent = "";
-    userName.value = "";
-    password.value = "";
-    userNameInfo.textContent = "";
-    passwordInfo.textContent = "";
-  };
-
-  if (isValidEmail && isValidPassword) {
-    localStorage.setItem("userName", userNameValue);
-    errorElement.textContent = "Login was successful.";
-    errorElement.style.color = "green";
-    setTimeout(resetLoginWindow, 2000);
-  } else {
-    errorElement.textContent = "";
-  }
-
-  if (userNameValue === "") {
-    userNameInfo.textContent = "Please enter an email.";
-    userNameInfo.style.color = "brown";
-  } else if (!isValidEmail) {
-    userNameInfo.textContent = "Please provide a properly formatted email.";
-    userNameInfo.style.color = "brown";
-  } else {
-    userName.setAttribute("style", "border: 0.1rem solid green;");
-    userNameInfo.textContent = "";
-  }
-
-  if (passwordValue === "") {
-    passwordInfo.textContent = "Please enter a password.";
-    passwordInfo.style.color = "brown";
-  } else if (!isValidPassword) {
-    passwordInfo.textContent = "Password must be at least 6 characters";
-    passwordInfo.style.color = "brown";
-  } else {
-    password.setAttribute("style", "border: 0.1rem solid green;");
-    passwordInfo.textContent = "";
-  }
-};
-
-initPage();
-
-loginButton.addEventListener("click", userLogin);
-menuWrapper.addEventListener("click", () => {
-  navbar.classList.toggle("navbar-active");
-});
+sendFormButton.addEventListener("click", contactWindow);

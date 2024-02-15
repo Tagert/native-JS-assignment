@@ -391,6 +391,8 @@
 .contact-footer .contact-container .contact-us .contact-btn {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 0.9rem;
 }
 .contact-footer .contact-container .contact-us .contact-btn h3 {
@@ -404,6 +406,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  width: 7.2rem;
   border-radius: 0.2rem;
   border: 0.1rem solid #161a30;
   padding: 0.4rem;
@@ -414,6 +417,9 @@
   cursor: pointer;
   color: #fbf9f1;
   background: linear-gradient(90deg, rgb(49, 48, 77) 0%, rgb(22, 26, 48) 120%);
+}
+.contact-footer .contact-container .contact-us .contact-btn .errorMessage {
+  font-size: 0.75rem;
 }
 
 *,
@@ -553,6 +559,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  max-height: 1.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.main-section .choose-side .type-box .title-type h3 {
+  font-size: 1.1rem;
 }
 .main-section .choose-side .type-box .title-type .title-wrapper {
   display: flex;
@@ -566,9 +578,6 @@ body {
 .main-section .choose-side .type-box .title-type .title-wrapper h3 {
   font-size: 1rem;
 }
-.main-section .choose-side .type-box .title-type h3 {
-  font-size: 1.1rem;
-}
 .main-section .choose-side .type-box .title-type .select-type {
   display: flex;
   gap: 0.5rem;
@@ -576,6 +585,9 @@ body {
 }
 .main-section .choose-side .type-box .title-type .select-type label {
   font-size: 0.85rem;
+}
+.main-section .choose-side .type-box .title-type-active {
+  max-height: 8.9rem;
 }
 .main-section .cards-container {
   display: flex;

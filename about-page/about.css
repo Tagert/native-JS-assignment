@@ -476,157 +476,95 @@ body {
   font-size: 1rem;
 }
 
-.main-section .add-card {
+.main-section .card-container {
   display: flex;
   justify-content: center;
   gap: 0.9rem;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0rem 3rem;
 }
-@media screen and (max-width: 1050px) {
-  .main-section .add-card {
-    align-items: center;
+@media screen and (max-width: 1200px) {
+  .main-section .card-container {
     flex-direction: column-reverse;
+    align-items: center;
   }
 }
-.main-section .add-card .title h2 {
-  font-size: 1rem;
-  color: #211c6a;
-}
-.main-section .add-card .add-container {
+.main-section .card-container .visual-side-box {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  justify-content: center;
+  width: 50%;
   gap: 0.9rem;
+  border: 0.1rem solid #e5e1da;
+  border-radius: 0.4rem;
 }
-.main-section .add-card .add-container .add-form {
-  display: flex;
-  gap: 0.9rem;
+@media screen and (max-width: 950px) {
+  .main-section .card-container .visual-side-box {
+    width: 65%;
+  }
 }
 @media screen and (max-width: 700px) {
-  .main-section .add-card .add-container .add-form {
-    flex-direction: column;
+  .main-section .card-container .visual-side-box {
+    width: 80%;
   }
 }
-.main-section .add-card .add-container .add-form .primarily-info,
-.main-section .add-card .add-container .add-form .secondary-info {
+@media screen and (max-width: 500px) {
+  .main-section .card-container .visual-side-box {
+    width: 100%;
+  }
+}
+.main-section .card-container .visual-side-box .image-box {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  border: 0.1rem solid #e5e1da;
-  border-radius: 0.4rem;
-  padding: 2rem;
-}
-.main-section .add-card .add-container .add-form .add {
-  display: flex;
-  flex-direction: column;
-}
-.main-section .add-card .add-container .add-form input,
-.main-section .add-card .add-container .add-form select {
-  height: 2rem;
-  border: 0.1rem solid #211c6a;
-  border-radius: 0.4rem;
-  padding: 0.4rem;
-  box-shadow: 0.15rem 0.15rem 0.15rem #e5e1da;
-  outline: none;
-}
-.main-section .add-card .add-container .add-form input::-moz-placeholder, .main-section .add-card .add-container .add-form select::-moz-placeholder {
-  padding-left: 0.5rem;
-}
-.main-section .add-card .add-container .add-form input::placeholder,
-.main-section .add-card .add-container .add-form select::placeholder {
-  padding-left: 0.5rem;
-}
-.main-section .add-card .add-container .add-form label {
-  font-size: 0.85rem;
-  font-weight: 500;
-  padding-bottom: 0.4rem;
-  color: #211c6a;
-}
-.main-section .add-card .add-button {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 1rem 0rem;
-}
-.main-section .add-card .add-button button {
-  display: flex;
   justify-content: center;
   align-items: center;
-  height: 2rem;
-  width: 9rem;
-  border-radius: 0.4rem;
-  border: 0.1rem solid #161a30;
-  padding: 0.6rem;
-  color: #161a30;
-  background: linear-gradient(270deg, rgb(227, 225, 217) 0%, rgb(242, 239, 229) 100%);
-}
-.main-section .add-card .add-button button:hover {
+  gap: 1rem;
+  max-width: 100%;
+  padding: 2rem;
+  overflow: hidden;
   cursor: pointer;
-  color: #fbf9f1;
-  background: linear-gradient(90deg, rgb(49, 48, 77) 0%, rgb(22, 26, 48) 120%);
 }
-.main-section .add-card .add-button button a {
-  text-decoration: none;
-  padding: 0.8rem 2rem;
-  color: #161a30;
+.main-section .card-container .visual-side-box .image-box img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.4rem;
 }
-.main-section .add-card .add-button button a:hover {
-  color: white;
-}
-.main-section .add-card #statusMessages h1 {
-  padding-top: 1rem;
-  font-size: 0.85rem;
-}
-.main-section .add-card .share-tech-description {
+.main-section .card-container .description-side-box {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  gap: 0.9rem;
-}
-.main-section .add-card .share-tech-description .share-tech {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-  max-width: 40.25rem;
+  justify-content: center;
+  gap: 2rem;
+  width: 35%;
   border: 0.1rem solid #e5e1da;
   border-radius: 0.4rem;
   padding: 2rem;
 }
-.main-section .add-card .share-tech-description .share-tech p {
-  font-size: 0.85rem;
+.main-section .card-container .description-side-box p {
   text-align: justify;
-  line-height: 1.2rem;
+  font-size: 1rem;
+  letter-spacing: 0.1;
+  line-height: 1.4rem;
 }
-.main-section .add-card .share-tech-description .share-tech p:nth-child(3) {
-  border-bottom: 0.1rem solid #e5e1da;
-  padding-bottom: 0.5rem;
-}
-.main-section .add-card .share-tech-description .share-tech p span {
+.main-section .card-container .description-side-box p span {
   font-weight: 700;
 }
-.main-section .add-card .share-tech-description .description-form .add-description {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  border: 0.1rem solid #e5e1da;
-  border-radius: 0.4rem;
-  padding: 2rem;
-}
-.main-section .add-card .share-tech-description .description-form .add-description textarea {
-  padding: 0.4rem;
-  max-width: 18rem;
-  height: 6rem;
-  line-height: 1.5;
-  border-radius: 0.4rem;
-  border: 0.1rem solid #211c6a;
-  box-shadow: 0.15rem 0.15rem 0.15rem #e5e1da;
-  resize: none;
-}
-@media screen and (max-width: 1050px) {
-  .main-section .add-card .share-tech-description .description-form .add-description {
-    min-width: 60%;
+@media screen and (max-width: 1200px) {
+  .main-section .card-container .description-side-box {
+    width: 50%;
   }
-}/*# sourceMappingURL=add-item.css.map */
+}
+@media screen and (max-width: 950px) {
+  .main-section .card-container .description-side-box {
+    width: 65%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .main-section .card-container .description-side-box {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main-section .card-container .description-side-box {
+    width: 100%;
+  }
+}/*# sourceMappingURL=about.css.map */

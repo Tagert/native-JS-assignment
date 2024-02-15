@@ -21,8 +21,8 @@
       <nav class="navbar">
         <div class="nav-list">
           <a href="../index.html">Home</a>
-          <a href="../index.html">About</a>
-          <a href="./item-description.html">Share</a>
+          <a href="../about-page/about.html">About</a>
+          <a href="../add-item-page/add-item.html">Share</a>
           <div class="my-basket">
             <a href="#">Favorite</a>
           </div>
@@ -37,7 +37,7 @@
       <div class="login-card">
         <div class="login-modal" id="loginModal">
           <button id="loginCloseBtn">
-            <img src="./assets/x_icon.svg" alt="" />
+            <img src="../assets/x_icon.svg" alt="" />
           </button>
           <div class="active-login blur-content">
             <h4>Welcome back</h4>
@@ -174,7 +174,7 @@
                 />
 
                 <textarea
-                  id="descriptionInput"
+                  id="messageInput"
                   name="textarea"
                   placeholder="Your message here..."
                 ></textarea>
@@ -183,12 +183,13 @@
           </div>
           <div class="contact-btn">
             <h3>Contact Us:</h3>
-            <button class="primary-btn form-btn">Send a message</button>
+            <button id="formBtn" class="primary-btn">Send a message</button>
+            <p class="errorMessage"></p>
           </div>
         </div>
       </div>
     </footer>
 
-    <script src="./item-description.js"></script>
+    <script type="module" src="./item-description.js"></script>
   </body>
 </html>

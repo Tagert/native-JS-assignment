@@ -172,7 +172,10 @@
       .contact-btn {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: 0.9rem;
+        // width: 9.2rem;
 
         h3 {
           text-align: center;
@@ -186,6 +189,7 @@
           align-items: center;
           justify-content: center;
           gap: 0.5rem;
+          width: 7.2rem;
           border-radius: 0.2rem;
           border: 0.1rem solid #161a30;
           padding: 0.4rem;
@@ -205,6 +209,10 @@
               rgba(22, 26, 48, 1) 120%
             );
           }
+        }
+
+        .errorMessage {
+          font-size: 0.75rem;
         }
       }
     }

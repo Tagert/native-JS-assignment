@@ -145,6 +145,13 @@ body {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        max-height: 1.5rem;
+        overflow: hidden;
+        transition: all 0.3s ease;
+
+        h3 {
+          font-size: 1.1rem;
+        }
 
         .title-wrapper {
           display: flex;
@@ -161,10 +168,6 @@ body {
           }
         }
 
-        h3 {
-          font-size: 1.1rem;
-        }
-
         .select-type {
           display: flex;
           gap: 0.5rem;
@@ -174,6 +177,10 @@ body {
             font-size: 0.85rem;
           }
         }
+      }
+
+      .title-type-active {
+        max-height: 8.9rem;
       }
     }
   }
