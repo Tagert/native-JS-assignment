@@ -708,8 +708,18 @@ body {
   gap: 0.5rem;
   text-align: left;
 }
-.main-section .cards-container .item-card .price-box .description-box p {
+.main-section .cards-container .item-card .price-box .description-box .favorite-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.main-section .cards-container .item-card .price-box .description-box .favorite-price p {
   font-size: 1.7rem;
+}
+.main-section .cards-container .item-card .price-box .description-box .favorite-price img {
+  width: 1.5rem;
+  cursor: pointer;
+  transform: translate(0%, -8%);
 }
 .main-section .cards-container .item-card .price-box .description-box #view-btn {
   align-items: center;

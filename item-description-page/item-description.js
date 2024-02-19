@@ -57,6 +57,9 @@ const renderCardWithDescription = (item) => {
   addFavoriteButton.setAttribute("id", "addFavorite");
   addFavoriteButton.innerText = "Add to favorite";
   priceDiv.append(priceEurParagraph, addFavoriteButton);
+  addFavoriteButton.addEventListener("click", async () => {
+    await addToFavorites(itemId);
+  });
 
   const specificationTitle = document.createElement("h4");
   specificationTitle.innerText = "Specification:";
@@ -140,6 +143,33 @@ const initPage = async () => {
   const item = await selectedIdFetchApi();
   console.log(item);
   renderCardWithDescription(item);
+};
+
+const addToFavorites = async (itemId) => {
+  try {
+    const res = await fetch(
+      `https://65bb606a52189914b5bbe878.mockapi.io/items/${itemId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ isFavorite: true }),
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error(`Failed to add to favorites. Status code: ${res.status}`);
+    } else {
+      displayStatus(res.ok, "Item has been added to favorites.");
+      console.log(`Item with id ${itemId} has been added to favorites.`);
+    }
+  } catch (error) {
+    displayStatus(
+      !res.ok,
+      `Failed to add to favorites for item with id ${itemId}. Status code: ${error.status}`
+    );
+  }
 };
 
 const removeApi = async (itemId) => {

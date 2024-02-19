@@ -18,6 +18,7 @@ const menuWrapper = document.querySelector(".menu-wrapper");
 const titleType = document.querySelector(".title-type");
 const typeWrapper = document.querySelector(".title-wrapper");
 const typeIconWrapper = document.getElementById("typeIconWrapper");
+const favoritesList = document.getElementById("favoritesList");
 
 const foundedItems = document.getElementById("foundItems");
 const sortSelectedElement = document.getElementById("sort");
@@ -53,11 +54,63 @@ const fetchApi = async () => {
   }
 };
 
+const toggleFavorite = async (itemId, isFavorite) => {
+  try {
+    const res = await fetch(
+      `https://65bb606a52189914b5bbe878.mockapi.io/items/${itemId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ isFavorite }),
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error(
+        `Failed to toggle favorite status. Status code: ${res.status}`
+      );
+    } else {
+      console.log(
+        `Item with id ${itemId} has been ${
+          isFavorite ? "added to" : "removed from"
+        } favorites.`
+      );
+      const cardDiv = document.querySelector(`[data-item-id="${itemId}"]`);
+      updateStarIcon(cardDiv, isFavorite);
+
+      const updatedItemsData = itemsData.map((item) => {
+        if (item.id === itemId) {
+          return { ...item, isFavorite };
+        }
+        return item;
+      });
+
+      itemsData = updatedItemsData;
+    }
+  } catch (error) {
+    console.log(
+      `Failed to toggle favorite status for item with id ${itemId}. Status code: ${error.status}`
+    );
+  }
+};
+
+const updateStarIcon = (starImage, isFavorite) => {
+  const emptyStarIconPath = "./assets/empty_favorite_star_icon.svg";
+  const fullStartIconPath = "./assets/full_favorite_star_icon.svg";
+
+  const newIconSrc = isFavorite ? fullStartIconPath : emptyStarIconPath;
+
+  starImage.setAttribute("src", newIconSrc);
+};
+
 const renderCards = (itemsArray) => {
   cardsContainer.innerHTML = "";
 
   itemsArray.forEach((item) => {
     const itemId = item.id;
+    const isFavorite = item.isFavorite;
 
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("item-card");
@@ -111,8 +164,26 @@ const renderCards = (itemsArray) => {
     const descriptionDiv = document.createElement("div");
     descriptionDiv.classList.add("description-box");
 
+    const favoritePriceDiv = document.createElement("div");
+    favoritePriceDiv.classList.add("favorite-price");
+
     const priceEurParagraph = document.createElement("p");
     priceEurParagraph.innerText = `\u20AC${item.priceEur} `;
+
+    const favoriteStarImage = document.createElement("img");
+    favoriteStarImage.src = isFavorite
+      ? "./assets/full_favorite_star_icon.svg"
+      : "./assets/empty_favorite_star_icon.svg";
+
+    favoriteStarImage.addEventListener("click", async () => {
+      await toggleFavorite(itemId, !item.isFavorite);
+
+      item.isFavorite = !item.isFavorite;
+
+      updateStarIcon(favoriteStarImage, item.isFavorite);
+    });
+
+    updateStarIcon(favoriteStarImage, isFavorite);
 
     const viewButton = document.createElement("button");
     viewButton.setAttribute("id", "view-btn");
@@ -152,7 +223,8 @@ const renderCards = (itemsArray) => {
     );
     locationParagraph.append(locationSpan);
     priceDiv.append(descriptionDiv);
-    descriptionDiv.append(priceEurParagraph, viewButton);
+    descriptionDiv.append(favoritePriceDiv, viewButton);
+    favoritePriceDiv.append(priceEurParagraph, favoriteStarImage);
   });
 };
 
@@ -176,10 +248,16 @@ monitorCheckbox.addEventListener("change", handleCheckboxChange);
 tabletCheckbox.addEventListener("change", handleCheckboxChange);
 phoneCheckbox.addEventListener("change", handleCheckboxChange);
 
-const filterAndRender = async (selectedType, selectedSortOption) => {
+const filterAndRender = async (
+  selectedType,
+  selectedSortOption,
+  showFavorites
+) => {
   let filteredItems = [...itemsData];
 
-  if (selectedType.length > 0 && !selectedType.includes("All")) {
+  if (showFavorites) {
+    filteredItems = filteredItems.filter((item) => item.isFavorite);
+  } else if (selectedType.length > 0 && !selectedType.includes("All")) {
     filteredItems = filteredItems.filter((item) =>
       selectedType.includes(item.type)
     );
@@ -222,6 +300,12 @@ typeWrapper.addEventListener("click", () => {
     currentIconSrc === plusIconPath ? minusIconPath : plusIconPath;
 
   typeIconWrapper.setAttribute("src", newIconSrc);
+});
+
+favoritesList.addEventListener("click", async () => {
+  selectedType = ["All"];
+  const selectedSortOption = sortSelectedElement.value;
+  await filterAndRender(selectedType, selectedSortOption, true);
 });
 
 loginWrapper.addEventListener("click", openLoginModal);
